@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const links = [
   { href: "#home", label: "About" },
@@ -47,16 +48,18 @@ const Navbar = () => {
             href="https://github.com/shivaram0583"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
+            className="px-3 py-1.5 rounded-full border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5"
           >
+            <FaGithub />
             GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/shivaram-doddi"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-colors"
+            className="px-3 py-1.5 rounded-full bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-colors flex items-center gap-1.5"
           >
+            <FaLinkedinIn />
             LinkedIn
           </a>
         </div>

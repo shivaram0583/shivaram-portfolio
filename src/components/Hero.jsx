@@ -1,106 +1,109 @@
 import { motion } from "framer-motion";
+import { HiOutlineSparkles } from "react-icons/hi2";
 import profileImg from "../assets/profile.jpg";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 lg:px-24 py-24 overflow-hidden"
+      className="relative px-6 sm:px-12 lg:px-24 py-24 overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-32 -left-32 h-80 w-80 bg-cyan-500/20 blur-3xl rounded-full" />
         <div className="absolute bottom-0 right-0 h-96 w-96 bg-violet-500/20 blur-3xl rounded-full" />
       </div>
 
-      <motion.div
-        className="max-w-xl"
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <p className="text-sm uppercase tracking-[0.3em] text-cyan-400">
-          Backend • Payments • Cloud
-        </p>
-        <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold">
-          I'm <span className="text-cyan-400">Venkata Shivaram Doddi</span>.
-        </h1>
-        <p className="mt-4 text-lg text-slate-300">
-          Software Engineer with 4+ years building
-          <span className="text-cyan-300 font-medium"> high-volume payment systems </span>
-          using Java, Spring Boot, Microservices and AWS. Experienced in ISO 20022,
-          SWIFT, FPS, SEPA and real-time banking platforms.
-        </p>
-
-        <div className="mt-8 flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="px-6 py-3 rounded-full bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-colors duration-200"
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 rounded-full border border-slate-600 text-slate-100 hover:border-cyan-400 hover:text-cyan-300 transition-colors duration-200"
-          >
-            Get In Touch
-          </a>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="mt-12 lg:mt-0 flex flex-col items-center gap-8"
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2, duration: 0.7 }}
-      >
-        <div className="relative">
-          <div className="pointer-events-none absolute -inset-4 rounded-[2.75rem] bg-gradient-to-r from-cyan-500/25 via-violet-500/25 to-cyan-400/25 blur-2xl" />
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-slate-800 bg-slate-900/70 shadow-xl shadow-cyan-900/30">
-            <img
-              src={profileImg}
-              alt="Venkata Shivaram Doddi"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+      <div className="max-w-6xl mx-auto flex flex-col items-center gap-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl"
+        >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-200">
+              <HiOutlineSparkles size={22} />
+            </span>
+            <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">Backend • Payments • Cloud</p>
           </div>
-          <div className="absolute -bottom-4 -right-6 rounded-2xl border border-cyan-400/30 bg-slate-900/80 px-4 py-3 backdrop-blur">
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-300">Onsite</p>
-            <p className="text-sm font-semibold text-slate-100">Payments Specialist</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-          {[
-            {
-              label: "Bulk Listed Payments",
-              value: "243k+",
-              sub: "transactions per load",
-            },
-            {
-              label: "Throughput",
-              value: "232k+",
-              sub: "transactions / hour",
-            },
-            {
-              label: "Availability",
-              value: "99.9%",
-              sub: "uptime on cloud",
-            },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 backdrop-blur hover:-translate-y-1 hover:border-cyan-400/70 transition-transform transition-colors duration-200"
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
+            I'm <span className="text-cyan-400">Venkata Shivaram Doddi</span>
+          </h1>
+          <p className="mt-4 text-lg text-slate-300">
+            Software Engineer with 4+ years building
+            <span className="text-cyan-300 font-medium"> high-volume payment systems </span>
+            using Java, Spring Boot, Microservices and AWS. Experienced in ISO 20022, SWIFT, FPS, SEPA and real-time banking platforms.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#projects"
+              className="px-6 py-3 rounded-full bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-colors duration-200"
             >
-              <p className="text-xs text-slate-400">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-cyan-300">{item.value}</p>
-              <p className="text-xs text-slate-400">{item.sub}</p>
+              View My Work
+            </a>
+            <a
+              href="#contact"
+              className="px-6 py-3 rounded-full border border-slate-600 text-slate-100 hover:border-cyan-400 hover:text-cyan-300 transition-colors duration-200"
+            >
+              Get In Touch
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col lg:flex-row items-center gap-10 w-full"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+        >
+          <div className="relative">
+            <div className="pointer-events-none absolute -inset-4 rounded-[2.75rem] bg-gradient-to-r from-cyan-500/25 via-violet-500/25 to-cyan-400/25 blur-2xl" />
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-slate-800 bg-slate-900/70 shadow-xl shadow-cyan-900/30">
+              <img
+                src={profileImg}
+                alt="Venkata Shivaram Doddi"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
             </div>
-          ))}
-        </div>
-      </motion.div>
+            <div className="absolute -bottom-4 -right-6 rounded-2xl border border-cyan-400/30 bg-slate-900/80 px-4 py-3 backdrop-blur text-left">
+              <p className="text-lg font-semibold text-slate-100 leading-none">4+ years</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mt-1">Software Engineer</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+            {[
+              {
+                label: "Bulk Listed Payments",
+                value: "243k+",
+                sub: "transactions per load",
+              },
+              {
+                label: "Throughput",
+                value: "232k+",
+                sub: "transactions / hour",
+              },
+              {
+                label: "Availability",
+                value: "99.9%",
+                sub: "uptime on cloud",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl bg-slate-900/60 border border-slate-800 p-4 backdrop-blur text-center hover:-translate-y-1 hover:border-cyan-400/70 transition-transform transition-colors duration-200"
+              >
+                <p className="text-xs text-slate-400">{item.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-cyan-300">{item.value}</p>
+                <p className="text-xs text-slate-400">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
 
 export default Hero;
-
