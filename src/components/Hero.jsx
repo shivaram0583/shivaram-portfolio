@@ -25,14 +25,14 @@ const Hero = () => {
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-200">
                 <HiOutlineRocketLaunch size={22} />
               </span>
-              <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">Backend • Payments • Cloud</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">Java Backend • Commercial Banking • Cloud</p>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
               I'm <span className="text-cyan-400">Venkata Shivaram Doddi</span>
             </h1>
             <p className="text-lg text-slate-300">
               Software Engineer with 4+ years building
-              <span className="text-cyan-300 font-medium"> high-volume payment systems </span>
+              <span className="text-cyan-300 font-medium"> designing and delivering enterprise payment systems </span>
               using Java, Spring Boot, Microservices and AWS. Experienced in ISO 20022, SWIFT, FPS, SEPA and real-time banking platforms.
             </p>
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
@@ -85,12 +85,12 @@ const Hero = () => {
             {
               label: "Bulk Listed Payments",
               value: "243k+",
-              sub: "transactions per load",
+              sub: "transactions peak hour",
             },
             {
               label: "Throughput",
               value: "232k+",
-              sub: "transactions / hour",
+              sub: "transactions/hour",
             },
             {
               label: "Availability",
