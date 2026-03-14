@@ -3,12 +3,12 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 
 const Summary = () => {
   const stats = [
-    { label: "Years", value: "4+", detail: "Enterprise engineering" },
+    { label: "Years", value: "5", detail: "Software engineering" },
     { label: "Transactions", value: "243k+", detail: "per BLP load" },
     { label: "Availability", value: "99.9%", detail: "cloud uptime" },
   ];
 
-  const traits = ["ISO 20022", "Payments Domain", "Cloud Native", "Camunda BPM", "Lean Delivery"];
+  const traits = ["Java Backend", "Microservices", "Cloud Native", "Payment Systems", "Clean Code"];
 
   return (
     <section id="about" className="px-6 sm:px-12 lg:px-24 py-16">
@@ -28,9 +28,7 @@ const Summary = () => {
           </h2>
         </div>
         <p className="text-slate-300 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
-          Backend-focused Software Engineer delivering resilient payment rails for UK banking clients. Experienced across
-          Spring Boot microservices, Camunda BPM orchestration and hybrid-cloud deployments (PCF, PNF, AWS). I translate ISO 20022 standards into
-          reliable APIs and operational playbooks for high-volume settlements.
+          Software Engineer with 5 years of experience in designing and developing microservices, cloud-native applications, and real-time payment systems. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, AWS, and distributed system design. Hands-on experience implementing ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing with strong focus on clean code, CI/CD, and Agile delivery.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">

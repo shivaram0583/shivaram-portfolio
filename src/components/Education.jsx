@@ -29,12 +29,15 @@ const Education = () => {
         >
           <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">2017 – 2021</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-slate-400">July 2017 – June 2021</p>
               <h3 className="mt-2 font-semibold text-slate-100">
-                Bachelor of Technology · Computer Science Engineering
+                Bachelor of Technology in Computer Science Engineering
               </h3>
               <p className="text-xs text-slate-400">
                 Vellore Institute of Technology, India
+              </p>
+              <p className="text-xs text-slate-500 mt-1">
+                Specialization: Network and Security
               </p>
             </div>
             <p className="text-xs text-cyan-300">CGPA: 8.0 / 10</p>

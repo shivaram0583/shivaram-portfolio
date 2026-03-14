@@ -88,8 +88,8 @@ const Contact = () => {
               {[ 
                 {
                   icon: HiOutlineMapPin,
-                  label: "Availability",
-                  value: "Hyderabad, Telangana • GMT+5:30 • Hybrid / Remote-friendly",
+                  label: "Location",
+                  value: "Hyderabad, Telangana - 507140",
                 },
                 {
                   icon: HiOutlineDevicePhoneMobile,

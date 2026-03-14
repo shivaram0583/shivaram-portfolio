@@ -14,7 +14,14 @@ const awards = [
     org: "Capco Technologies",
     date: "September 2022",
     description:
-      "Awarded for high level of commitment towards project work resulting in successful delivery.",
+      "Awarded for demonstrating high level of commitment towards project work resulting in FPS successful delivery.",
+  },
+  {
+    title: "Clap Award",
+    org: "Capco Technologies",
+    date: "December 2025",
+    description:
+      "Awarded for demonstrating high level of commitment towards project work resulting in BLP successful delivery.",
   },
 ];
 
