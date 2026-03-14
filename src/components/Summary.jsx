@@ -8,7 +8,7 @@ const Summary = () => {
     { label: "Availability", value: "99.9%", detail: "cloud uptime" },
   ];
 
-  const traits = ["Java Backend", "Microservices", "Cloud Native", "Payment Systems", "Clean Code"];
+  const traits = ["Java Backend", "Microservices", "Cloud Native", "Payment Systems", "System Design"];
 
   return (
     <section id="about" className="px-6 sm:px-12 lg:px-24 py-16">

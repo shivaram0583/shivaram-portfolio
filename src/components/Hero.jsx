@@ -232,21 +232,21 @@ const Hero = () => {
         >
           {[ 
             {
-              label: "Bulk Listed Payments",
-              value: "243k+",
-              sub: "transactions peak hour",
+              label: "Enterprise Banking Platforms",
+              value: "",
+              sub: "Corporate and Bulk Listed Payments",
               icon: "📊",
             },
             {
-              label: "Throughput",
-              value: "232k+",
-              sub: "transactions/hour",
+              label: "Microservices & Distributed Systems",
+              value: "",
+              sub: "Java • Spring Boot • AWS • Camunda",
               icon: "⚡",
             },
             {
-              label: "Availability",
-              value: "99.9%",
-              sub: "uptime on cloud",
+              label: "Built Real-time payment processing",
+              value: "",
+              sub: "ISO 20022 • SWIFT • CHAPS • FPS",
               icon: "🛡️",
             },
           ].map((item, index) => (
