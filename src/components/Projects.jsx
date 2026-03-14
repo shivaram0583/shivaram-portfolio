@@ -26,15 +26,15 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800 border border-slate-700 text-slate-300" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800 border border-cyan-400/50 text-cyan-300" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
               <HiOutlineBeaker size={22} />
             </motion.span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
-            Featured <span className="text-slate-400">Projects</span>
+            Featured <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">Projects</span>
           </h1>
           <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
-            Production-grade side projects that demonstrate API design, orchestration and full-stack craftsmanship.
+            Production-grade side projects that demonstrate <span className="text-cyan-300 font-medium">API design</span>, <span className="text-cyan-300 font-medium">orchestration</span> and <span className="text-cyan-300 font-medium">full-stack craftsmanship</span>.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ const Projects = () => {
                 y: -5,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="group rounded-2xl bg-slate-900/80 border border-slate-800 p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/90"
+              className="group rounded-2xl bg-gradient-to-br from-slate-900/80 via-slate-900/90 to-slate-800/80 border border-cyan-400/20 p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-slate-900/90 hover:shadow-lg hover:shadow-cyan-500/10"
             >
               <div>
                 <motion.div 
@@ -65,8 +65,8 @@ const Projects = () => {
                     {project.name}
                   </motion.h3>
                   <motion.div
-                    className="text-xs text-slate-500 bg-slate-800/50 px-2 py-1 rounded-full"
-                    whileHover={{ scale: 1.1, backgroundColor: "slate-700/50" }}
+                    className="text-xs text-cyan-300 bg-cyan-400/10 px-2 py-1 rounded-full border border-cyan-400/20"
+                    whileHover={{ scale: 1.1, backgroundColor: "cyan-400/20" }}
                   >
                     {project.date}
                   </motion.div>
@@ -96,7 +96,7 @@ const Projects = () => {
                   {project.tech.map((t, techIdx) => (
                     <motion.span
                       key={t}
-                      className="px-2 py-0.5 text-[10px] rounded-full bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600 hover:text-slate-100 hover:bg-slate-700 transition-all duration-300 cursor-default"
+                      className="px-2 py-0.5 text-[10px] rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-200 border border-cyan-400/20 hover:from-cyan-500/20 hover:to-blue-500/20 hover:border-cyan-400/40 hover:text-cyan-100 hover:shadow-sm hover:shadow-cyan-500/20 transition-all duration-300 cursor-default"
                       variants={{
                         hidden: { opacity: 0, scale: 0.8 },
                         visible: { opacity: 1, scale: 1 },
@@ -126,7 +126,7 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="group/link inline-flex items-center gap-1 text-xs text-slate-400 hover:text-slate-300 font-medium transition-colors"
+                  className="group/link inline-flex items-center gap-1 text-xs text-cyan-300 hover:text-cyan-200 font-medium transition-colors"
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -135,11 +135,11 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">Capabilities</p>
-          <h2 className="text-3xl sm:text-4xl font-semibold mt-2">
-            Technical <span className="text-cyan-400">Skillset</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6">
+            Technical <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">Skills</span>
           </h2>
           <p className="text-slate-300 max-w-3xl mx-auto text-sm sm:text-base mt-3">
-            Backend craftsmanship blended with payments domain expertise and hybrid-cloud delivery. I prioritize
+            Backend craftsmanship blended with <span className="text-cyan-300 font-medium">payments domain expertise</span> and <span className="text-cyan-300 font-medium">hybrid-cloud delivery</span>. I prioritize
             reliability, observability and clean API contracts that scale.
           </p>
         </div>
@@ -160,9 +160,9 @@ const Skills = () => {
                 }}
                 className="group"
               >
-                <div className="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 backdrop-blur-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/90">
+                <div className="rounded-2xl bg-gradient-to-br from-slate-900/80 via-slate-900/90 to-slate-800/80 border border-cyan-400/20 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:shadow-lg hover:shadow-cyan-500/10">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 border border-slate-700 text-slate-300 transition-all duration-300 group-hover:bg-slate-700 group-hover:border-slate-600">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-cyan-300 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 group-hover:border-cyan-400/50">
                       <Icon size={20} />
                     </span>
                     <div>
@@ -176,7 +176,7 @@ const Skills = () => {
                     {cat.items.map((item, itemIdx) => (
                       <motion.span
                         key={item}
-                        className="px-2.5 py-1 rounded-full bg-slate-800 text-xs text-slate-300 border border-slate-700 transition-all duration-300 hover:bg-slate-700 hover:border-slate-600 hover:text-slate-200"
+                        className="px-2.5 py-1 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-xs text-cyan-200 border border-cyan-400/20 transition-all duration-300 hover:from-cyan-500/20 hover:to-blue-500/20 hover:border-cyan-400/40 hover:text-cyan-100 hover:shadow-sm hover:shadow-cyan-500/20"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
