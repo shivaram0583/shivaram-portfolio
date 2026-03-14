@@ -62,13 +62,13 @@ const Contact = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-200">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
               <HiOutlinePaperAirplane size={22} />
             </span>
-            <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">Let's connect</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-slate-400">Let's connect</p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            Tell me about your <span className="text-cyan-400">next build</span>
+            Tell me about your <span className="text-blue-300">next build</span>
           </h2>
           <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
             Open to backend engineering roles, payments platforms and cloud-native solutions. If you're building resilient
@@ -82,7 +82,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-slate-900/40 border border-slate-800 p-6 backdrop-blur space-y-5"
+            className="rounded-3xl bg-[#161b22]/50 border border-[#30363d] p-6 backdrop-blur space-y-5"
           >
             <div className="space-y-3">
               {[ 
@@ -105,7 +105,7 @@ const Contact = () => {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="flex items-start gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950/70 border border-slate-800 text-cyan-200">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0d1117]/45 border border-[#30363d] text-blue-200">
                       <Icon size={18} />
                     </span>
                     <div>
@@ -121,7 +121,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/shivaram-doddi"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-full border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
+                className="px-4 py-2 rounded-full border border-[#30363d] hover:border-blue-400 hover:text-blue-200 transition-colors"
               >
                 LinkedIn
               </a>
@@ -129,7 +129,7 @@ const Contact = () => {
                 href="https://github.com/shivaram0583"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-full border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors"
+                className="px-4 py-2 rounded-full border border-[#30363d] hover:border-blue-400 hover:text-blue-200 transition-colors"
               >
                 GitHub
               </a>
@@ -143,7 +143,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900/80 to-slate-900/60 border border-slate-800 p-6 sm:p-8 backdrop-blur space-y-4"
+            className="rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-8 backdrop-blur space-y-4"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
@@ -155,7 +155,7 @@ const Contact = () => {
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded-lg bg-slate-950/60 border border-slate-700 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
+                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
                 />
               </div>
               <div>
@@ -167,7 +167,7 @@ const Contact = () => {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-lg bg-slate-950/60 border border-slate-700 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
+                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
                 />
               </div>
               <div>
@@ -179,7 +179,7 @@ const Contact = () => {
                   name="mobile"
                   type="text"
                   placeholder="e.g. +91 7036953734"
-                  className="w-full rounded-lg bg-slate-950/60 border border-slate-700 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
+                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
                 />
               </div>
             </div>
@@ -192,13 +192,13 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 required
-                className="w-full rounded-lg bg-slate-950/60 border border-slate-700 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400"
+                className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
               />
             </div>
             <button
               type="submit"
               disabled={status.type === "loading"}
-              className="w-full mt-2 px-4 py-3 rounded-full bg-cyan-500 text-slate-950 text-sm font-medium hover:bg-cyan-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="btn-primary w-full mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status.type === "loading" ? "Sending..." : "Send Message"}
             </button>

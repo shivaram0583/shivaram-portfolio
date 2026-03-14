@@ -91,15 +91,15 @@ const Experience = () => {
       <div className="max-w-5xl mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800 border border-cyan-400/50 text-cyan-300" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#161b22] border border-blue-400/25 text-blue-200" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
               <HiOutlineBriefcase size={22} />
             </motion.span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
-            Professional <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">Experience</span>
+            Professional <span className="text-gradient">Experience</span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base mt-4 max-w-3xl mx-auto">
-            Enterprise software engineering across <span className="text-cyan-300 font-medium">payment systems</span>, <span className="text-cyan-300 font-medium">cloud migration</span>, and <span className="text-cyan-300 font-medium">microservices architecture</span>.
+            Enterprise software engineering across <span className="text-blue-200 font-medium">payment systems</span>, <span className="text-blue-200 font-medium">cloud migration</span>, and <span className="text-blue-200 font-medium">microservices architecture</span>.
             I focus on scalable solutions, clean code practices, and measurable business outcomes.
           </p>
         </div>
@@ -115,7 +115,7 @@ const Experience = () => {
               transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
             >
               <motion.span 
-                className="absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-slate-950 border-2 border-cyan-400/60 flex items-center justify-center text-[10px] text-cyan-300"
+                className="absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-[#0d1117] border-2 border-blue-400/45 flex items-center justify-center text-[10px] text-blue-200"
                 animate={{
                   scale: [1, 1.2, 1],
                 }}
@@ -129,12 +129,10 @@ const Experience = () => {
                 ★
               </motion.span>
               <motion.article
-                className="rounded-2xl bg-gradient-to-br from-slate-900/80 via-slate-900/90 to-slate-800/80 border border-cyan-400/20 p-6 sm:p-8 backdrop-blur-sm text-left overflow-hidden group transition-all duration-300"
+                className="rounded-2xl bg-[#161b22]/55 border border-[#30363d] p-6 sm:p-8 backdrop-blur-sm text-left overflow-hidden group transition-all duration-200"
                 whileHover={{
                   y: -5,
-                  borderColor: "cyan-400/40",
-                  backgroundColor: "slate-900/90",
-                  boxShadow: "0 10px 30px -5px rgba(6, 182, 212, 0.3)",
+                  boxShadow: "0 10px 30px -5px rgba(1, 4, 9, 0.55)",
                 }}
                 transition={{ duration: 0.3 }}
               >
@@ -150,10 +148,9 @@ const Experience = () => {
                       {exp.stack.map((tag, tagIdx) => (
                         <motion.span
                           key={`${exp.company}-${tag}`}
-                          className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-[11px] text-cyan-200 border border-cyan-400/20 hover:from-cyan-500/20 hover:to-blue-500/20 hover:border-cyan-400/40 hover:text-cyan-100 hover:shadow-sm hover:shadow-cyan-500/20 transition-all duration-300 cursor-default"
+                          className="px-2.5 py-0.5 rounded-full bg-[#0d1117]/40 text-[11px] text-slate-200 border border-[#30363d] hover:border-[#3d444d] transition-all duration-200 cursor-default"
                           whileHover={{ 
                             scale: 1.05,
-                            backgroundColor: "cyan-400/20",
                           }}
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
@@ -176,20 +173,19 @@ const Experience = () => {
                       {exp.highlights.map((item, highlightIdx) => (
                         <motion.div
                           key={item.title}
-                          className="rounded-xl border border-cyan-400/20 bg-gradient-to-br from-slate-900/70 via-slate-800/50 to-slate-900/70 p-4 flex gap-3 items-start group/highlight transition-all duration-300"
+                          className="rounded-xl border border-[#30363d] bg-[#0d1117]/30 p-4 flex gap-3 items-start group/highlight transition-all duration-200"
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
                           transition={{ delay: 0.1 + highlightIdx * 0.05, duration: 0.4, ease: "easeOut" }}
                           whileHover={{
                             y: -2,
-                            borderColor: "cyan-400/40",
-                            backgroundColor: "slate-900/90",
-                            boxShadow: "0 5px 15px -3px rgba(6, 182, 212, 0.2)",
+                            borderColor: "#3d444d",
+                            boxShadow: "0 5px 15px -3px rgba(1, 4, 9, 0.55)",
                           }}
                         >
                           <motion.div 
-                            className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400 flex-shrink-0"
+                            className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-blue-400 to-emerald-400 flex-shrink-0"
                             animate={{
                               scale: [1, 1.3, 1],
                             }}

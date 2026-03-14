@@ -26,15 +26,15 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800 border border-cyan-400/50 text-cyan-300" animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#161b22] border border-blue-400/25 text-blue-200" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
               <HiOutlineBeaker size={22} />
             </motion.span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
-            Featured <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">Projects</span>
+            Featured <span className="text-gradient">Projects</span>
           </h1>
           <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
-            Production-grade side projects that demonstrate <span className="text-cyan-300 font-medium">API design</span>, <span className="text-cyan-300 font-medium">orchestration</span> and <span className="text-cyan-300 font-medium">full-stack craftsmanship</span>.
+            Production-grade side projects that demonstrate <span className="text-blue-200 font-medium">API design</span>, <span className="text-blue-200 font-medium">orchestration</span> and <span className="text-blue-200 font-medium">full-stack craftsmanship</span>.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ const Projects = () => {
                 y: -5,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
-              className="group rounded-2xl bg-gradient-to-br from-slate-900/80 via-slate-900/90 to-slate-800/80 border border-cyan-400/20 p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:border-cyan-400/40 hover:bg-slate-900/90 hover:shadow-lg hover:shadow-cyan-500/10"
+              className="group rounded-2xl bg-[#161b22]/60 border border-[#30363d] p-6 flex flex-col justify-between backdrop-blur-sm transition-all duration-200 hover:border-[#3d444d] hover:bg-[#161b22]/70"
             >
               <div>
                 <motion.div 
@@ -65,8 +65,8 @@ const Projects = () => {
                     {project.name}
                   </motion.h3>
                   <motion.div
-                    className="text-xs text-cyan-300 bg-cyan-400/10 px-2 py-1 rounded-full border border-cyan-400/20"
-                    whileHover={{ scale: 1.1, backgroundColor: "cyan-400/20" }}
+                    className="text-xs text-emerald-200 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-400/20"
+                    whileHover={{ scale: 1.1 }}
                   >
                     {project.date}
                   </motion.div>
@@ -96,7 +96,7 @@ const Projects = () => {
                   {project.tech.map((t, techIdx) => (
                     <motion.span
                       key={t}
-                      className="px-2 py-0.5 text-[10px] rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 text-cyan-200 border border-cyan-400/20 hover:from-cyan-500/20 hover:to-blue-500/20 hover:border-cyan-400/40 hover:text-cyan-100 hover:shadow-sm hover:shadow-cyan-500/20 transition-all duration-300 cursor-default"
+                      className="px-2 py-0.5 text-[10px] rounded-full bg-[#0d1117]/40 text-slate-200 border border-[#30363d] hover:border-[#3d444d] transition-all duration-200 cursor-default"
                       variants={{
                         hidden: { opacity: 0, scale: 0.8 },
                         visible: { opacity: 1, scale: 1 },
@@ -113,7 +113,7 @@ const Projects = () => {
               </div>
 
               <motion.div 
-                className="mt-4 flex justify-between items-center border-t border-slate-800 pt-4"
+                className="mt-4 flex justify-between items-center border-t border-[#30363d] pt-4"
                 whileHover={{ y: -2 }}
               >
                 <motion.span 
@@ -126,7 +126,7 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="group/link inline-flex items-center gap-1 text-xs text-cyan-300 hover:text-cyan-200 font-medium transition-colors"
+                  className="group/link inline-flex items-center gap-1 text-xs text-blue-300 hover:text-blue-200 font-medium transition-colors"
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >

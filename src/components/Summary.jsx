@@ -17,14 +17,14 @@ const Summary = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900/80 to-slate-900/50 border border-slate-800 p-6 sm:p-10 text-center backdrop-blur"
+        className="max-w-5xl mx-auto rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-10 text-center backdrop-blur"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-200">
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
             <HiOutlineUserGroup size={24} />
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            Professional <span className="text-cyan-400">Summary</span>
+            Professional <span className="text-blue-300">Summary</span>
           </h2>
         </div>
         <p className="text-slate-300 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
@@ -35,10 +35,10 @@ const Summary = () => {
           {stats.map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-slate-800 bg-slate-950/60 p-4"
+              className="rounded-2xl border border-[#30363d] bg-[#0d1117]/35 p-4"
             >
               <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-cyan-300">{item.value}</p>
+              <p className="mt-2 text-2xl font-semibold text-emerald-300">{item.value}</p>
               <p className="text-xs text-slate-400">{item.detail}</p>
             </div>
           ))}
@@ -48,7 +48,7 @@ const Summary = () => {
           {traits.map((trait) => (
             <span
               key={trait}
-              className="px-3 py-1 rounded-full border border-cyan-400/30 text-cyan-200 bg-cyan-500/5"
+              className="px-3 py-1 rounded-full border border-[#30363d] text-slate-200 bg-[#161b22]/40"
             >
               {trait}
             </span>

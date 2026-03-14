@@ -7,13 +7,13 @@ const Education = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-200">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
               <HiOutlineAcademicCap size={22} />
             </span>
-            <p className="text-xs uppercase tracking-[0.5em] text-cyan-400/80">academics</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-slate-400">academics</p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            <span className="text-cyan-400">Education</span> & Coursework
+            <span className="text-blue-300">Education</span> & Coursework
           </h2>
           <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
             Computer science foundation with emphasis on distributed systems and secure software delivery.
@@ -25,7 +25,7 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-slate-900/40 border border-slate-800 p-6 sm:p-8 backdrop-blur shadow-[0_12px_32px_rgba(8,15,40,0.35)]"
+          className="rounded-3xl bg-[#161b22]/55 border border-[#30363d] p-6 sm:p-8 backdrop-blur shadow-[0_12px_32px_rgba(8,15,40,0.35)]"
         >
           <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
             <div>
@@ -40,7 +40,7 @@ const Education = () => {
                 Specialization: Network and Security
               </p>
             </div>
-            <p className="text-xs text-cyan-300">CGPA: 8.0 / 10</p>
+            <p className="text-xs text-emerald-200">CGPA: 8.0 / 10</p>
           </div>
 
           <p className="text-xs uppercase tracking-[0.25em] text-slate-400 mb-2">

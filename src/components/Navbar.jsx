@@ -25,19 +25,19 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-30 transition-colors duration-300 backdrop-blur border-b ${
-        scrolled ? "bg-slate-950/70 border-slate-800" : "bg-transparent border-transparent"
+        scrolled ? "bg-[#0d1117]/80 border-[#30363d]" : "bg-transparent border-transparent"
       }`}
     >
       <nav className="flex items-center justify-between px-6 sm:px-12 lg:px-24 py-4">
         <a href="#home" className="font-semibold tracking-tight text-slate-100">
-          VS<span className="text-cyan-400">D</span>
+          VS<span className="text-blue-400">D</span>
         </a>
         <div className="hidden md:flex items-center gap-6 text-sm">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-slate-300 hover:text-cyan-300 transition-colors"
+              className="text-slate-300 hover:text-blue-300 transition-colors"
             >
               {link.label}
             </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
             href="https://github.com/shivaram0583"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full border border-slate-700 hover:border-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-full border border-zinc-700 hover:border-blue-400 hover:text-blue-200 transition-colors flex items-center gap-1.5"
           >
             <FaGithub />
             GitHub
@@ -57,7 +57,7 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/shivaram-doddi"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full bg-cyan-500 text-slate-950 font-medium hover:bg-cyan-400 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-full bg-emerald-600 text-white font-medium hover:bg-emerald-500 active:bg-emerald-700 transition-colors flex items-center gap-1.5"
           >
             <FaLinkedinIn />
             LinkedIn

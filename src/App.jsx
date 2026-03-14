@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-400 to-cyan-500 origin-left z-40"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500 origin-left z-40"
         style={{ scaleX: scrollYProgress }}
       />
 
@@ -36,14 +36,14 @@ function App() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <span className="h-16 w-16 rounded-full border-4 border-slate-800 border-t-cyan-400 animate-spin" />
+            <span className="h-16 w-16 rounded-full border-4 border-slate-800 border-t-blue-400 animate-spin" />
             <p className="mt-4 text-xs tracking-[0.4em] uppercase text-slate-400">Loading</p>
           </motion.div>
         )}
       </AnimatePresence>
 
       <motion.div
-        className="bg-slate-950 text-slate-100 min-h-screen"
+        className="min-h-screen"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}

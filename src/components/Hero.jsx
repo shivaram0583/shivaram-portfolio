@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { HiOutlineRocketLaunch, HiOutlineSparkles } from "react-icons/hi2";
+import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import profileImg from "../assets/profile.jpg";
 
 const Hero = () => {
@@ -10,7 +10,7 @@ const Hero = () => {
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <motion.div 
-          className="absolute -top-32 -left-32 h-96 w-96 bg-slate-800/20 blur-3xl rounded-full"
+          className="absolute -top-32 -left-32 h-96 w-96 bg-blue-500/10 blur-3xl rounded-full"
           animate={{
             x: [0, 30, 0],
             y: [0, -20, 0],
@@ -22,7 +22,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-0 right-0 h-96 w-96 bg-slate-800/15 blur-3xl rounded-full"
+          className="absolute bottom-0 right-0 h-96 w-96 bg-purple-500/10 blur-3xl rounded-full"
           animate={{
             x: [0, -25, 0],
             y: [0, 20, 0],
@@ -34,7 +34,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/4 h-32 w-32 bg-slate-800/10 blur-2xl rounded-full"
+          className="absolute top-1/2 left-1/4 h-32 w-32 bg-emerald-500/10 blur-2xl rounded-full"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -50,7 +50,7 @@ const Hero = () => {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
-            className="absolute w-1 h-1 bg-slate-600/30 rounded-full"
+            className="absolute w-1 h-1 bg-slate-500/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -93,14 +93,14 @@ const Hero = () => {
           >
             <div className="flex items-center justify-center lg:justify-start gap-3">
               <motion.span 
-                className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800 border border-slate-700 text-slate-300"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#161b22] border border-[#30363d] text-slate-200"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <HiOutlineRocketLaunch size={22} />
               </motion.span>
               <motion.p 
-                className="text-xs uppercase tracking-[0.5em] text-cyan-400/80 font-medium"
+                className="text-xs uppercase tracking-[0.5em] text-slate-400 font-medium"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -118,7 +118,7 @@ const Hero = () => {
             >
               I'm{" "}
               <motion.span 
-                className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent"
+                className="text-gradient"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
@@ -126,7 +126,7 @@ const Hero = () => {
               </motion.span>
             </motion.h1>
             <motion.p 
-              className="text-lg text-slate-300 leading-relaxed"
+              className="text-lg text-slate-300/90 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -134,7 +134,7 @@ const Hero = () => {
             >
               Software Engineer with 5 years of experience in
               <motion.span 
-                className="text-cyan-300 font-medium inline-block"
+                className="text-blue-200 font-medium inline-block"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
@@ -151,7 +151,7 @@ const Hero = () => {
             >
               <motion.a
                 href="#projects"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-medium transition-all duration-300 hover:from-cyan-400 hover:to-blue-400 hover:shadow-lg hover:shadow-cyan-500/25"
+                className="btn-primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -159,7 +159,7 @@ const Hero = () => {
               </motion.a>
               <motion.a
                 href="#contact"
-                className="px-6 py-3 rounded-full border border-cyan-400/50 text-cyan-300 font-medium transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-400/10"
+                className="btn-secondary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -183,9 +183,9 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div 
-                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-slate-700 bg-slate-900/70 shadow-2xl backdrop-blur-sm"
+                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-[#30363d] bg-[#161b22]/70 shadow-2xl backdrop-blur-sm"
                 whileHover={{
-                  borderColor: "slate-600",
+                  borderColor: "#3d444d",
                 }}
               >
                 <img
@@ -194,7 +194,7 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                 />
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/65 via-transparent to-transparent"
                   animate={{
                     opacity: [0.3, 0.5, 0.3],
                   }}
@@ -206,18 +206,18 @@ const Hero = () => {
                 />
               </motion.div>
               <motion.div 
-                className="absolute -bottom-4 -right-6 rounded-2xl border border-cyan-400/40 bg-slate-900/90 px-4 py-3 backdrop-blur-md text-left"
+                className="absolute -bottom-4 -right-6 rounded-2xl border border-blue-400/35 bg-[#161b22]/90 px-4 py-3 backdrop-blur-md text-left"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
                 whileHover={{
                   scale: 1.1,
-                  borderColor: "cyan-400/60",
+                  borderColor: "rgba(56, 139, 253, 0.55)",
                 }}
               >
                 <p className="text-lg font-semibold text-slate-100 leading-none">5 years</p>
-                <p className="text-xs uppercase tracking-[0.3em] text-cyan-300 mt-1">Software Engineer</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-blue-200 mt-1">Software Engineer</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -252,7 +252,7 @@ const Hero = () => {
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className="group relative rounded-2xl bg-slate-900/80 border border-slate-800 p-4 backdrop-blur-sm transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/90"
+              className="group relative rounded-2xl bg-[#161b22]/70 border border-[#30363d] p-4 backdrop-blur-sm transition-all duration-200 hover:border-[#3d444d] hover:bg-[#161b22]/80"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
