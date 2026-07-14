@@ -34,6 +34,18 @@ const categories = [
     ],
   },
   {
+    title: "Databases",
+    blurb: "Relational and in-memory databases",
+    icon: HiOutlineCircleStack,
+    items: [
+      "MySQL",
+      "Oracle",
+      "PostgreSQL",
+      "H2 Database",
+      "TOAD",
+    ],
+  },
+  {
     title: "Cloud & DevOps",
     blurb: "Cloud platforms and CI/CD",
     icon: HiOutlineCloud,
@@ -60,18 +72,6 @@ const categories = [
       "Swagger",
       "API Gateway",
       "Camunda BPM",
-    ],
-  },
-  {
-    title: "Databases",
-    blurb: "Relational and in-memory databases",
-    icon: HiOutlineCircleStack,
-    items: [
-      "MySQL",
-      "Oracle",
-      "PostgreSQL",
-      "H2 Database",
-      "TOAD",
     ],
   },
   {
@@ -102,18 +102,6 @@ const categories = [
     ],
   },
   {
-    title: "Methodologies",
-    blurb: "Development and architecture practices",
-    icon: HiOutlineCodeBracket,
-    items: [
-      "Agile",
-      "Scrum",
-      "SDLC",
-      "Design Patterns",
-      "Jira and Confluence",
-    ],
-  },
-  {
     title: "Architecture & Concepts",
     blurb: "System design and patterns",
     icon: HiOutlineServer,
@@ -125,6 +113,18 @@ const categories = [
       "SDLC",
       "Agile & Scrum",
       "High-Volume Transaction Processing",
+    ],
+  },
+  {
+    title: "Methodologies",
+    blurb: "Development and architecture practices",
+    icon: HiOutlineCodeBracket,
+    items: [
+      "Agile",
+      "Scrum",
+      "SDLC",
+      "Design Patterns",
+      "Jira and Confluence",
     ],
   },
 ];
@@ -144,21 +144,21 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="columns-1 md:columns-2 xl:columns-3 gap-6">
           {categories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <motion.div
                 key={cat.title}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
                 whileHover={{
                   y: -5,
                   transition: { duration: 0.3, ease: "easeOut" }
                 }}
-                className="group"
+                className="group mb-6 break-inside-avoid"
               >
                 <div className="rounded-2xl bg-[#161b22]/60 border border-[#30363d] p-6 backdrop-blur-sm transition-all duration-200 hover:border-[#3d444d]">
                   <div className="flex items-start gap-4 mb-4">

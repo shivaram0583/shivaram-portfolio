@@ -3,6 +3,14 @@ import { HiOutlineBeaker } from "react-icons/hi2";
 
 const projects = [
   {
+    name: "Inventory Management System",
+    tech: ["React", "Node.js", "Express", "SQLite", "Tailwind CSS", "JWT", "Recharts"],
+    description:
+      "Built full-stack inventory and billing platform for small to medium-scale trading businesses covering products, sales, purchases, and analytics. Implemented point-of-sale flow with multi-item cart, real-time stock validation, and printable A4 receipts. Designed role-based access control with JWT authentication, session idle timeout, and login audit logs. Added reporting with monthly revenue trends, product performance charts, and CSV exports.",
+    date: "March 2026",
+    link: "https://github.com/shivaram0583/inventory-management",
+  },
+  {
     name: "Mortgage Loan Microservice",
     tech: ["Spring Boot", "Java", "MySQL", "H2", "Swagger", "React"],
     description:

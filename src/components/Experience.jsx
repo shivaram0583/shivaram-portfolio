@@ -3,11 +3,41 @@ import { HiOutlineBriefcase, HiMiniCheckCircle } from "react-icons/hi2";
 
 const experiences = [
   {
+    company: "Wells Fargo",
+    role: "Senior Software Engineer",
+    period: "Jul 2026 – Present",
+    location: "Hyderabad, India",
+    summary: "Building enterprise letter generation and document generation platforms for the bank within the Digital and Technology Innovation domain.",
+    stack: [
+      "Java",
+      "Spring Boot",
+      "Microservices",
+      "REST APIs",
+      "Linux",
+      "AutoSys",
+      "Batch Processing",
+      "GitHub Copilot",
+      "Devin",
+      "Enterprise Letter Generation",
+      "Document Generation",
+    ],
+    highlights: [
+      {
+        title: "Enterprise Letter Generation",
+        description: "Working on the bank's enterprise letter generation platform, enabling creation and delivery of customer communications at scale."
+      },
+      {
+        title: "Document Generation Process",
+        description: "Developing and enhancing document generation services and workflows that power the bank's digital document needs."
+      }
+    ]
+  },
+  {
     company: "Capco Technologies · NatWest Group",
     role: "Consultant — Java Backend Engineer",
-    period: "Jan 2022 – Present",
+    period: "Jan 2022 – Jun 2026",
     location: "Hyderabad, India (Hybrid)",
-    summary: "Leading modernization of high-value payment rails, cloud migration, and enterprise payment systems at scale.",
+    summary: "Led modernization of high-value payment rails, cloud migration, and enterprise payment systems at scale.",
     stack: [
       "Spring Boot",
       "Spring Cloud",
@@ -53,7 +83,7 @@ const experiences = [
       },
       {
         title: "AWS Cloud Migration",
-        description: "Currently contributing to AWS cloud migration for existing payment services and modernizing architecture for scalability."
+        description: "Contributed to AWS cloud migration for existing payment services, modernizing architecture for scalability."
       }
     ]
   },
