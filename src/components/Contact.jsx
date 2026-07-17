@@ -62,15 +62,15 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
               <HiOutlinePaperAirplane size={22} />
             </span>
-            <p className="text-xs uppercase tracking-[0.5em] text-slate-400">Let's connect</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">Let's connect</p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            Tell me about your <span className="text-blue-300">next build</span>
+            Tell me about your <span className="text-gradient">next build</span>
           </h2>
-          <p className="text-slate-400 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
+          <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-3xl mx-auto">
             Open to backend engineering roles, payments platforms and cloud-native solutions. If you're building resilient
             financial systems or large-scale transaction platforms, I'd love to talk.
           </p>
@@ -82,7 +82,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl bg-[#161b22]/50 border border-[#30363d] p-6 backdrop-blur space-y-5"
+            className="rounded-3xl bg-white border border-[#e7ded2] p-6 shadow-[0_14px_40px_rgba(120,100,80,0.08)] space-y-5"
           >
             <div className="space-y-3">
               {[ 
@@ -105,12 +105,12 @@ const Contact = () => {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="flex items-start gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0d1117]/45 border border-[#30363d] text-blue-200">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
                       <Icon size={18} />
                     </span>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.2em] text-slate-400">{item.label}</p>
-                      <p className="text-sm text-slate-200">{item.value}</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-[#8a837c]">{item.label}</p>
+                      <p className="text-sm text-[#292524]">{item.value}</p>
                     </div>
                   </div>
                 );
@@ -121,7 +121,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/shivaram-doddi"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-full border border-[#30363d] hover:border-blue-400 hover:text-blue-200 transition-colors"
+                className="px-4 py-2 rounded-full border border-[#d8ccbb] text-[#44403c] hover:border-[#b5451f] hover:text-[#b5451f] transition-colors"
               >
                 LinkedIn
               </a>
@@ -129,7 +129,7 @@ const Contact = () => {
                 href="https://github.com/shivaram0583"
                 target="_blank"
                 rel="noreferrer"
-                className="px-4 py-2 rounded-full border border-[#30363d] hover:border-blue-400 hover:text-blue-200 transition-colors"
+                className="px-4 py-2 rounded-full border border-[#d8ccbb] text-[#44403c] hover:border-[#b5451f] hover:text-[#b5451f] transition-colors"
               >
                 GitHub
               </a>
@@ -143,11 +143,11 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-8 backdrop-blur space-y-4"
+            className="rounded-3xl bg-white border border-[#e7ded2] p-6 sm:p-8 shadow-[0_14px_40px_rgba(120,100,80,0.08)] space-y-4"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="block text-xs text-slate-300 mb-1" htmlFor="name">
+                <label className="block text-xs text-[#44403c] mb-1" htmlFor="name">
                   Name
                 </label>
                 <input
@@ -155,11 +155,11 @@ const Contact = () => {
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
+                  className="w-full rounded-lg bg-[#faf7f2] border border-[#e7ded2] px-3 py-2 text-sm text-[#1c1917] placeholder:text-[#a8a29e] focus:outline-none focus:ring-1 focus:ring-[#b5451f] focus:border-[#b5451f]"
                 />
               </div>
               <div>
-                <label className="block text-xs text-slate-300 mb-1" htmlFor="email">
+                <label className="block text-xs text-[#44403c] mb-1" htmlFor="email">
                   Email
                 </label>
                 <input
@@ -167,11 +167,11 @@ const Contact = () => {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
+                  className="w-full rounded-lg bg-[#faf7f2] border border-[#e7ded2] px-3 py-2 text-sm text-[#1c1917] placeholder:text-[#a8a29e] focus:outline-none focus:ring-1 focus:ring-[#b5451f] focus:border-[#b5451f]"
                 />
               </div>
               <div>
-                <label className="block text-xs text-slate-300 mb-1" htmlFor="mobile">
+                <label className="block text-xs text-[#44403c] mb-1" htmlFor="mobile">
                   Mobile Number
                 </label>
                 <input
@@ -179,12 +179,12 @@ const Contact = () => {
                   name="mobile"
                   type="text"
                   placeholder="e.g. +91 7036953734"
-                  className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
+                  className="w-full rounded-lg bg-[#faf7f2] border border-[#e7ded2] px-3 py-2 text-sm text-[#1c1917] placeholder:text-[#a8a29e] focus:outline-none focus:ring-1 focus:ring-[#b5451f] focus:border-[#b5451f]"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-xs text-slate-300 mb-1" htmlFor="message">
+              <label className="block text-xs text-[#44403c] mb-1" htmlFor="message">
                 Message
               </label>
               <textarea
@@ -192,7 +192,7 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 required
-                className="w-full rounded-lg bg-[#0d1117]/45 border border-[#30363d] px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400"
+                className="w-full rounded-lg bg-[#faf7f2] border border-[#e7ded2] px-3 py-2 text-sm text-[#1c1917] placeholder:text-[#a8a29e] focus:outline-none focus:ring-1 focus:ring-[#b5451f] focus:border-[#b5451f]"
               />
             </div>
             <button
@@ -206,10 +206,10 @@ const Contact = () => {
               <p
                 className={`mt-2 text-xs ${
                   status.type === "success"
-                    ? "text-emerald-400"
+                    ? "text-emerald-700"
                     : status.type === "error"
-                    ? "text-rose-400"
-                    : "text-slate-300"
+                    ? "text-rose-600"
+                    : "text-[#6b6560]"
                 }`}
               >
                 {status.message}

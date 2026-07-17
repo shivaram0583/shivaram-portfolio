@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --accent-blue-glow: rgba(56, 139, 253, 0.35);
-  --accent-purple-glow: rgba(163, 113, 247, 0.28);
-  --accent-green-glow: rgba(46, 160, 67, 0.22);
+  --ink: #1c1917;
+  --paper: #faf7f2;
+  --accent: #b5451f;
+  --accent-strong: #973714;
+  --accent-tint: #f7ece6;
+  --hairline: #e7ded2;
 }
 
 html {
@@ -18,46 +21,46 @@ body {
   @apply antialiased;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  color: #c9d1d9;
-  background-color: #0d1117;
+  color: #44403c;
+  background-color: #faf7f2;
   background-image:
-    radial-gradient(1000px circle at 20% 15%, rgba(56, 139, 253, 0.10) 0%, transparent 55%),
-    radial-gradient(900px circle at 85% 35%, rgba(163, 113, 247, 0.08) 0%, transparent 55%),
-    radial-gradient(700px circle at 70% 90%, rgba(46, 160, 67, 0.06) 0%, transparent 55%);
+    radial-gradient(1100px circle at 12% 8%, rgba(181, 69, 31, 0.06) 0%, transparent 55%),
+    radial-gradient(900px circle at 88% 18%, rgba(217, 119, 6, 0.05) 0%, transparent 55%),
+    radial-gradient(800px circle at 70% 95%, rgba(120, 113, 108, 0.05) 0%, transparent 55%);
   min-height: 100vh;
+}
+
+/* Serif editorial headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+  color: #1c1917;
+  @apply tracking-tight;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(13, 17, 23, 0.7);
+  background: #f0e9df;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #388bfd, #a371f7);
-  border-radius: 4px;
+  background: #d8ccbb;
+  border-radius: 6px;
+  border: 2px solid #f0e9df;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #58a6ff, #c297ff);
+  background: #b5451f;
 }
 
 /* Custom animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { 
-    box-shadow: 0 0 18px rgba(56, 139, 253, 0.20);
-  }
-  50% { 
-    box-shadow: 0 0 32px rgba(56, 139, 253, 0.35);
-  }
 }
 
 @keyframes gradient-shift {
@@ -75,42 +78,30 @@ body {
   backface-visibility: hidden;
 }
 
+/* Editorial accent for highlighted heading words */
 .text-gradient {
-  @apply bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent;
-  background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
-}
-
-.glow-cyan {
-  box-shadow: 0 0 22px var(--accent-blue-glow);
-}
-
-.glow-violet {
-  box-shadow: 0 0 22px var(--accent-purple-glow);
+  color: #b5451f;
+  font-style: italic;
 }
 
 .glass-effect {
-  @apply backdrop-blur-md bg-white/5 border border-white/10;
-}
-
-/* Enhanced typography */
-h1, h2, h3, h4, h5, h6 {
-  @apply tracking-tight;
+  @apply backdrop-blur-md bg-white/70 border border-[#e7ded2];
 }
 
 .text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(28, 25, 23, 0.08);
 }
 
 /* Selection styling */
 ::selection {
-  @apply bg-blue-500/30 text-slate-50;
+  background: rgba(181, 69, 31, 0.16);
+  color: #1c1917;
 }
 
 /* Focus styles */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
-  --tw-ring-offset-color: #0d1117;
+  @apply focus:outline-none focus:ring-2 focus:ring-[#b5451f]/40 focus:ring-offset-2;
+  --tw-ring-offset-color: #faf7f2;
 }
 
 /* Smooth transitions */
@@ -125,11 +116,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button styles */
 .btn-primary {
-  @apply px-6 py-3 rounded-full bg-emerald-600 text-white font-medium transition-all duration-200 hover:bg-emerald-500 active:bg-emerald-700 focus-ring;
+  @apply px-6 py-3 rounded-full bg-[#b5451f] text-[#faf7f2] font-medium transition-all duration-200 hover:bg-[#973714] active:bg-[#7f2f10] focus-ring;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 rounded-full border border-zinc-700 text-zinc-200 font-medium transition-all duration-200 hover:bg-zinc-900 hover:border-zinc-600 focus-ring;
+  @apply px-6 py-3 rounded-full border border-[#d8ccbb] text-[#1c1917] font-medium transition-all duration-200 hover:bg-white hover:border-[#b5451f] focus-ring;
 }
 
 /* Scrollbar hide utility */
