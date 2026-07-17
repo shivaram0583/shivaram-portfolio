@@ -118,7 +118,7 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="px-6 sm:px-12 lg:px-24 py-16">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
             <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#161b22] border border-blue-400/25 text-blue-200" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>

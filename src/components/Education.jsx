@@ -4,7 +4,7 @@ import { HiOutlineAcademicCap } from "react-icons/hi2";
 const Education = () => {
   return (
     <section id="education" className="px-6 sm:px-12 lg:px-24 py-16">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">

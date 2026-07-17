@@ -3,6 +3,20 @@ import { HiOutlineStar } from "react-icons/hi2";
 
 const awards = [
   {
+    title: "Clap Award",
+    org: "Capco Technologies",
+    date: "December 2025",
+    description:
+      "Awarded for demonstrating high level of commitment towards project work resulting in BLP successful delivery.",
+  },
+  {
+    title: "Clap Award",
+    org: "Capco Technologies",
+    date: "November 2024",
+    description:
+      "Awarded for demonstrating high level of commitment towards project work resulting in SEPA CT & CHAPS successful delivery.",
+  },
+  {
     title: "Monthly Team Award",
     org: "Capco Technologies",
     date: "January 2023",
@@ -16,19 +30,12 @@ const awards = [
     description:
       "Awarded for demonstrating high level of commitment towards project work resulting in FPS successful delivery.",
   },
-  {
-    title: "Clap Award",
-    org: "Capco Technologies",
-    date: "December 2025",
-    description:
-      "Awarded for demonstrating high level of commitment towards project work resulting in BLP successful delivery.",
-  },
 ];
 
 const Awards = () => {
   return (
     <section id="awards" className="px-6 sm:px-12 lg:px-24 py-16">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
@@ -44,10 +51,10 @@ const Awards = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {awards.map((award, idx) => (
             <motion.div
-              key={award.title}
+              key={`${award.title}-${award.date}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

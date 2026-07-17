@@ -17,7 +17,7 @@ const Summary = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="max-w-5xl mx-auto rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-10 text-center backdrop-blur"
+        className="max-w-6xl mx-auto rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-10 text-center backdrop-blur"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
