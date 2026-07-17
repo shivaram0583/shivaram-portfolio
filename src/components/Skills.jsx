@@ -5,6 +5,7 @@ import {
   HiOutlineCloud,
   HiOutlineCircleStack,
   HiOutlineGlobeAsiaAustralia,
+  HiOutlineSparkles,
 } from "react-icons/hi2";
 
 const categories = [
@@ -13,6 +14,17 @@ const categories = [
     blurb: "Core languages and development",
     icon: HiOutlineCodeBracket,
     items: ["Java 11/17/21", "JavaScript", "SQL", "PL/SQL"],
+  },
+  {
+    title: "AI-Assisted Development",
+    blurb: "AI pair-programming and agents",
+    icon: HiOutlineSparkles,
+    items: [
+      "Claude",
+      "GitHub Copilot",
+      "Devin",
+      "Agentic Workflows",
+    ],
   },
   {
     title: "Backend Frameworks",
@@ -41,6 +53,7 @@ const categories = [
       "MySQL",
       "Oracle",
       "PostgreSQL",
+      "MongoDB",
       "H2 Database",
       "TOAD",
     ],
@@ -53,13 +66,17 @@ const categories = [
       "AWS (EC2, S3, IAM, Lambda)",
       "PCF (Pivotal Cloud Foundry)",
       "CI/CD Pipelines",
+      "GitHub Actions",
       "Git",
+      "GitHub",
       "GitLab",
       "Bitbucket",
       "TeamCity",
       "Maven",
       "JFrog Artifactory",
       "SonarQube",
+      "Linux Scripting",
+      "AutoSys",
     ],
   },
   {
@@ -102,29 +119,18 @@ const categories = [
     ],
   },
   {
-    title: "Architecture & Concepts",
-    blurb: "System design and patterns",
+    title: "Architecture & Practices",
+    blurb: "System design and delivery methods",
     icon: HiOutlineServer,
     items: [
       "Microservices",
       "Distributed Systems",
       "API Gateway Architecture",
+      "High-Volume Transaction Processing",
       "Design Patterns",
       "SDLC",
       "Agile & Scrum",
-      "High-Volume Transaction Processing",
-    ],
-  },
-  {
-    title: "Methodologies",
-    blurb: "Development and architecture practices",
-    icon: HiOutlineCodeBracket,
-    items: [
-      "Agile",
-      "Scrum",
-      "SDLC",
-      "Design Patterns",
-      "Jira and Confluence",
+      "Jira & Confluence",
     ],
   },
 ];

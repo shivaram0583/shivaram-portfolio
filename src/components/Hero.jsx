@@ -125,21 +125,17 @@ const Hero = () => {
                 Venkata Shivaram Doddi
               </motion.span>
             </motion.h1>
-            <motion.p 
-              className="text-lg text-slate-300/90 leading-relaxed"
+            <motion.p
+              className="text-lg text-slate-300/90 leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
             >
-              Software Engineer with 5 years of experience in
-              <motion.span 
-                className="text-blue-200 font-medium inline-block"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                {" "}designing and developing microservices, cloud-native applications, and real-time payment systems{" "}
-              </motion.span>
+              Software Engineer with 5 years of experience in{" "}
+              <span className="text-blue-200 font-medium">
+                designing and developing microservices, cloud-native applications, and real-time payment systems
+              </span>{" "}
               using Java, Spring Boot, and AWS. Expert in ISO 20022, SWIFT, FPS, CHAPS, and enterprise banking solutions.
             </motion.p>
             <motion.div 
