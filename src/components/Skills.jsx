@@ -140,12 +140,12 @@ const Skills = () => {
     <section id="skills" className="px-6 sm:px-12 lg:px-24 py-16">
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.5em] text-slate-400">Capabilities</p>
+          <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">Capabilities</p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6">
             Technical <span className="text-gradient">Skills</span>
           </h2>
-          <p className="text-slate-300 max-w-3xl mx-auto text-sm sm:text-base mt-3">
-            Backend craftsmanship blended with <span className="text-blue-200 font-medium">payments domain expertise</span> and <span className="text-blue-200 font-medium">hybrid-cloud delivery</span>. I prioritize
+          <p className="text-[#44403c] max-w-3xl mx-auto text-sm sm:text-base mt-3">
+            Backend craftsmanship blended with <span className="text-[#b5451f] font-medium">payments domain expertise</span> and <span className="text-[#b5451f] font-medium">hybrid-cloud delivery</span>. I prioritize
             reliability, observability and clean API contracts that scale.
           </p>
         </div>
@@ -166,23 +166,23 @@ const Skills = () => {
                 }}
                 className="group mb-6 break-inside-avoid"
               >
-                <div className="rounded-2xl bg-[#161b22]/60 border border-[#30363d] p-6 backdrop-blur-sm transition-all duration-200 hover:border-[#3d444d]">
+                <div className="rounded-2xl bg-white border border-[#e7ded2] p-6 shadow-[0_10px_30px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_14px_36px_rgba(120,100,80,0.1)]">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-400/20 text-blue-200 transition-all duration-200 group-hover:border-blue-400/35">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f] transition-all duration-200 group-hover:border-[#e0c3b6]">
                       <Icon size={20} />
                     </span>
                     <div>
-                      <h3 className="text-base font-semibold text-slate-100 transition-colors duration-300 group-hover:text-slate-50">
+                      <h3 className="text-base font-semibold text-[#1c1917] transition-colors duration-300 group-hover:text-[#b5451f]">
                         {cat.title}
                       </h3>
-                      <p className="text-xs text-slate-400 mt-1">{cat.blurb}</p>
+                      <p className="text-xs text-[#8a837c] mt-1">{cat.blurb}</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((item, itemIdx) => (
                       <motion.span
                         key={item}
-                        className="px-2.5 py-1 rounded-full bg-[#0d1117]/40 text-xs text-slate-200 border border-[#30363d] transition-all duration-200 hover:border-[#3d444d]"
+                        className="px-2.5 py-1 rounded-full bg-[#faf7f2] text-xs text-[#57534e] border border-[#e7ded2] transition-all duration-200 hover:border-[#d8ccbb] hover:text-[#b5451f]"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}

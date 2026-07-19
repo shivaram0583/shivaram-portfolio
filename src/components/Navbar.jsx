@@ -24,20 +24,24 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-30 transition-colors duration-300 backdrop-blur border-b ${
-        scrolled ? "bg-[#0d1117]/80 border-[#30363d]" : "bg-transparent border-transparent"
-      }`}
+      className="fixed top-0 inset-x-0 z-30 transition-colors duration-300 border-b"
+      style={{
+        backgroundColor: scrolled ? "rgba(250, 247, 242, 0.85)" : "transparent",
+        borderBottomColor: scrolled ? "#e7ded2" : "transparent",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(8px)" : "none",
+      }}
     >
       <nav className="flex items-center justify-between px-6 sm:px-12 lg:px-24 py-4">
-        <a href="#home" className="font-semibold tracking-tight text-slate-100">
-          VS<span className="text-blue-400">D</span>
+        <a href="#home" className="text-lg font-semibold tracking-tight text-[#1c1917]" style={{ fontFamily: "'Fraunces', serif" }}>
+          VS<span className="text-[#b5451f]">D</span>
         </a>
         <div className="hidden md:flex items-center gap-6 text-sm">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-slate-300 hover:text-blue-300 transition-colors"
+              className="text-[#57534e] hover:text-[#b5451f] transition-colors"
             >
               {link.label}
             </a>
@@ -48,7 +52,7 @@ const Navbar = () => {
             href="https://github.com/shivaram0583"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full border border-zinc-700 hover:border-blue-400 hover:text-blue-200 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-full border border-[#d8ccbb] text-[#44403c] hover:border-[#b5451f] hover:text-[#b5451f] transition-colors flex items-center gap-1.5"
           >
             <FaGithub />
             GitHub
@@ -57,7 +61,7 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/shivaram-doddi"
             target="_blank"
             rel="noreferrer"
-            className="px-3 py-1.5 rounded-full bg-emerald-600 text-white font-medium hover:bg-emerald-500 active:bg-emerald-700 transition-colors flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-full bg-[#b5451f] text-[#faf7f2] font-medium hover:bg-[#973714] active:bg-[#7f2f10] transition-colors flex items-center gap-1.5"
           >
             <FaLinkedinIn />
             LinkedIn

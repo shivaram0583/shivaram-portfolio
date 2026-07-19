@@ -10,7 +10,7 @@ const Hero = () => {
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <motion.div 
-          className="absolute -top-32 -left-32 h-96 w-96 bg-blue-500/10 blur-3xl rounded-full"
+          className="absolute -top-32 -left-32 h-96 w-96 bg-[#b5451f]/10 blur-3xl rounded-full"
           animate={{
             x: [0, 30, 0],
             y: [0, -20, 0],
@@ -22,7 +22,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-0 right-0 h-96 w-96 bg-purple-500/10 blur-3xl rounded-full"
+          className="absolute bottom-0 right-0 h-96 w-96 bg-amber-400/12 blur-3xl rounded-full"
           animate={{
             x: [0, -25, 0],
             y: [0, 20, 0],
@@ -34,7 +34,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/4 h-32 w-32 bg-emerald-500/10 blur-2xl rounded-full"
+          className="absolute top-1/2 left-1/4 h-32 w-32 bg-rose-300/14 blur-2xl rounded-full"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -50,7 +50,7 @@ const Hero = () => {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
-            className="absolute w-1 h-1 bg-slate-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-[#b5451f]/25 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -71,11 +71,11 @@ const Hero = () => {
 
         {/* Simple grid pattern */}
         <div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.5]"
           style={{
             backgroundImage: `
-              linear-gradient(slate-600/10 1px, transparent 1px),
-              linear-gradient(90deg, slate-600/10 1px, transparent 1px)
+              linear-gradient(rgba(120,113,108,0.09) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(120,113,108,0.09) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -93,14 +93,14 @@ const Hero = () => {
           >
             <div className="flex items-center justify-center lg:justify-start gap-3">
               <motion.span 
-                className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#161b22] border border-[#30363d] text-slate-200"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#e7ded2] text-[#b5451f] shadow-[0_6px_18px_rgba(120,100,80,0.08)]"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
                 <HiOutlineRocketLaunch size={22} />
               </motion.span>
               <motion.p 
-                className="text-xs uppercase tracking-[0.5em] text-slate-400 font-medium"
+                className="text-xs uppercase tracking-[0.5em] text-[#8a837c] font-medium"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -126,14 +126,14 @@ const Hero = () => {
               </motion.span>
             </motion.h1>
             <motion.p
-              className="text-lg text-slate-300/90 leading-relaxed text-pretty"
+              className="text-lg text-[#44403c] leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
             >
               Software Engineer with 5 years of experience in{" "}
-              <span className="text-blue-200 font-medium">
+              <span className="text-[#b5451f] font-medium">
                 designing and developing microservices, cloud-native applications, and real-time payment systems
               </span>{" "}
               using Java, Spring Boot, and AWS. Expert in ISO 20022, SWIFT, FPS, CHAPS, and enterprise banking solutions.
@@ -179,9 +179,9 @@ const Hero = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.div 
-                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-[#30363d] bg-[#161b22]/70 shadow-2xl backdrop-blur-sm"
+                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-[#e7ded2] bg-white shadow-[0_24px_60px_rgba(120,100,80,0.18)]"
                 whileHover={{
-                  borderColor: "#3d444d",
+                  borderColor: "#d8ccbb",
                 }}
               >
                 <img
@@ -190,7 +190,7 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                 />
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-[#0d1117]/65 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-[#1c1917]/20 via-transparent to-transparent"
                   animate={{
                     opacity: [0.3, 0.5, 0.3],
                   }}
@@ -202,18 +202,18 @@ const Hero = () => {
                 />
               </motion.div>
               <motion.div 
-                className="absolute -bottom-4 -right-6 rounded-2xl border border-blue-400/35 bg-[#161b22]/90 px-4 py-3 backdrop-blur-md text-left"
+                className="absolute -bottom-4 -right-6 rounded-2xl border border-[#e7ded2] bg-white px-4 py-3 shadow-[0_12px_30px_rgba(120,100,80,0.16)] text-left"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
                 whileHover={{
                   scale: 1.1,
-                  borderColor: "rgba(56, 139, 253, 0.55)",
+                  borderColor: "rgba(181, 69, 31, 0.5)",
                 }}
               >
-                <p className="text-lg font-semibold text-slate-100 leading-none">5 years</p>
-                <p className="text-xs uppercase tracking-[0.3em] text-blue-200 mt-1">Software Engineer</p>
+                <p className="text-lg font-semibold text-[#1c1917] leading-none">5 years</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-[#b5451f] mt-1">Software Engineer</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -248,7 +248,7 @@ const Hero = () => {
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className="group relative rounded-2xl bg-[#161b22]/70 border border-[#30363d] p-4 backdrop-blur-sm transition-all duration-200 hover:border-[#3d444d] hover:bg-[#161b22]/80"
+              className="group relative rounded-2xl bg-white border border-[#e7ded2] p-4 shadow-[0_8px_24px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_12px_30px_rgba(120,100,80,0.1)]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -261,9 +261,8 @@ const Hero = () => {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">{item.icon}</span>
                 <div>
-                  <p className="text-lg font-semibold text-slate-100 leading-none">{item.value}</p>
-                  <p className="text-xs text-slate-400 mt-1">{item.label}</p>
-                  <p className="text-xs text-slate-500 mt-1">{item.sub}</p>
+                  <p className="text-sm font-semibold text-[#1c1917] leading-snug">{item.label}</p>
+                  <p className="text-xs text-[#8a837c] mt-1">{item.sub}</p>
                 </div>
               </div>
             </motion.div>

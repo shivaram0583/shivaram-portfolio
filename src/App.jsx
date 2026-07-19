@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500 origin-left z-40"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#b5451f] via-[#d97706] to-[#b5451f] origin-left z-40"
         style={{ scaleX: scrollYProgress }}
       />
 
@@ -30,14 +30,14 @@ function App() {
         {isLoading && (
           <motion.div
             key="loader"
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#faf7f2]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <span className="h-16 w-16 rounded-full border-4 border-slate-800 border-t-blue-400 animate-spin" />
-            <p className="mt-4 text-xs tracking-[0.4em] uppercase text-slate-400">Loading</p>
+            <span className="h-16 w-16 rounded-full border-4 border-[#e7ded2] border-t-[#b5451f] animate-spin" />
+            <p className="mt-4 text-xs tracking-[0.4em] uppercase text-[#8a837c]">Loading</p>
           </motion.div>
         )}
       </AnimatePresence>

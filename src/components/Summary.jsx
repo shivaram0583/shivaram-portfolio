@@ -17,17 +17,17 @@ const Summary = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto rounded-3xl bg-[#0d1117]/40 border border-[#30363d] p-6 sm:p-10 text-center backdrop-blur"
+        className="max-w-6xl mx-auto rounded-3xl bg-white border border-[#e7ded2] p-6 sm:p-10 text-center shadow-[0_16px_44px_rgba(120,100,80,0.08)]"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-400/25 text-blue-200">
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
             <HiOutlineUserGroup size={24} />
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold">
-            Professional <span className="text-blue-300">Summary</span>
+            Professional <span className="text-gradient">Summary</span>
           </h2>
         </div>
-        <p className="text-slate-300 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
+        <p className="text-[#44403c] max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
           Software Engineer with 5 years of experience in designing and developing microservices, cloud-native applications, and real-time payment systems. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, AWS, and distributed system design. Hands-on experience implementing ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing with strong focus on clean code, CI/CD, and Agile delivery.
         </p>
 
@@ -35,11 +35,11 @@ const Summary = () => {
           {stats.map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-[#30363d] bg-[#0d1117]/35 p-4"
+              className="rounded-2xl border border-[#e7ded2] bg-[#faf7f2] p-4"
             >
-              <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-emerald-300">{item.value}</p>
-              <p className="text-xs text-slate-400">{item.detail}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#8a837c]">{item.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-[#b5451f]">{item.value}</p>
+              <p className="text-xs text-[#6b6560]">{item.detail}</p>
             </div>
           ))}
         </div>
@@ -48,7 +48,7 @@ const Summary = () => {
           {traits.map((trait) => (
             <span
               key={trait}
-              className="px-3 py-1 rounded-full border border-[#30363d] text-slate-200 bg-[#161b22]/40"
+              className="px-3 py-1 rounded-full border border-[#e7ded2] text-[#44403c] bg-white"
             >
               {trait}
             </span>
