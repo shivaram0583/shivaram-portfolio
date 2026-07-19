@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { HiOutlineBriefcase, HiMiniCheckCircle } from "react-icons/hi2";
+import FillTitle from "./FillTitle.jsx";
+import { gsap, prefersReducedMotion } from "../lib/gsapConfig.js";
 
 const experiences = [
   {
@@ -116,8 +120,34 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const sectionRef = useRef(null);
+
+  // The timeline rail fills with terracotta as each entry is read.
+  useGSAP(
+    () => {
+      const lines = gsap.utils.toArray(".exp-line");
+      if (prefersReducedMotion()) {
+        gsap.set(lines, { scaleY: 1 });
+        return;
+      }
+      lines.forEach((line) => {
+        gsap.to(line, {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: line.parentElement,
+            start: "top 75%",
+            end: "bottom 55%",
+            scrub: 0.8,
+          },
+        });
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section id="experience" className="px-6 sm:px-12 lg:px-24 py-16">
+    <section id="experience" ref={sectionRef} className="px-6 sm:px-12 lg:px-24 py-16">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
@@ -125,9 +155,11 @@ const Experience = () => {
               <HiOutlineBriefcase size={22} />
             </motion.span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
-            Professional <span className="text-gradient">Experience</span>
-          </h1>
+          <FillTitle
+            as="h2"
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
+            segments={[{ text: "Professional" }, { text: "Experience", accent: true }]}
+          />
           <p className="text-[#6b6560] text-sm sm:text-base mt-4 max-w-3xl mx-auto">
             Enterprise software engineering across <span className="text-[#b5451f] font-medium">payment systems</span>, <span className="text-[#b5451f] font-medium">cloud migration</span>, and <span className="text-[#b5451f] font-medium">microservices architecture</span>.
             I focus on scalable solutions, clean code practices, and measurable business outcomes.
@@ -140,11 +172,16 @@ const Experience = () => {
               key={exp.company} 
               className="relative pl-10 md:pl-16 border-l border-[#e7ded2]"
               initial={{ opacity: 0, x: -30 }}
+              data-exp-item
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
             >
-              <motion.span 
+              <span
+                aria-hidden="true"
+                className="exp-line absolute -left-[2px] top-0 h-full w-[3px] origin-top scale-y-0 rounded-full bg-gradient-to-b from-[#b5451f] to-[#d97706]"
+              />
+              <motion.span
                 className="absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-[#faf7f2] border-2 border-[#e0c3b6] flex items-center justify-center text-[10px] text-[#b5451f]"
                 animate={{
                   scale: [1, 1.2, 1],

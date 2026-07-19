@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { SPRING } from "../lib/motion";
 import { HiOutlineBeaker } from "react-icons/hi2";
+import FillTitle from "./FillTitle.jsx";
 
 const projects = [
   {
@@ -58,9 +60,11 @@ const Projects = () => {
               <HiOutlineBeaker size={22} />
             </motion.span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold">
-            Featured <span className="text-gradient">Projects</span>
-          </h1>
+          <FillTitle
+            as="h2"
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
+            segments={[{ text: "Featured" }, { text: "Projects", accent: true }]}
+          />
           <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-3xl mx-auto">
             Production-grade side projects that demonstrate <span className="text-[#b5451f] font-medium">API design</span>, <span className="text-[#b5451f] font-medium">orchestration</span> and <span className="text-[#b5451f] font-medium">full-stack craftsmanship</span>.
           </p>
@@ -74,10 +78,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
-              whileHover={{
-                y: -5,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
+              whileHover={{ y: -6, transition: SPRING }}
               className="group rounded-2xl bg-white border border-[#e7ded2] p-6 sm:p-8 shadow-[0_10px_30px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_18px_44px_rgba(120,100,80,0.12)]"
             >
               <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-stretch">

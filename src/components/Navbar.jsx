@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SPRING } from "../lib/motion";
 
 const links = [
   { href: "#home", label: "About" },
@@ -41,31 +43,37 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-[#57534e] hover:text-[#b5451f] transition-colors"
+              className="nav-link text-[#57534e] hover:text-[#b5451f] transition-colors"
             >
               {link.label}
             </a>
           ))}
         </div>
         <div className="flex items-center gap-3 text-xs">
-          <a
+          <motion.a
             href="https://github.com/shivaram0583"
             target="_blank"
             rel="noreferrer"
             className="px-3 py-1.5 rounded-full border border-[#d8ccbb] text-[#44403c] hover:border-[#b5451f] hover:text-[#b5451f] transition-colors flex items-center gap-1.5"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={SPRING}
           >
             <FaGithub />
             GitHub
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href="https://www.linkedin.com/in/shivaram-doddi"
             target="_blank"
             rel="noreferrer"
             className="px-3 py-1.5 rounded-full bg-[#b5451f] text-[#faf7f2] font-medium hover:bg-[#973714] active:bg-[#7f2f10] transition-colors flex items-center gap-1.5"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={SPRING}
           >
             <FaLinkedinIn />
             LinkedIn
-          </a>
+          </motion.a>
         </div>
       </nav>
     </header>

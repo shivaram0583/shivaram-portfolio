@@ -7,6 +7,7 @@ import {
   HiOutlineEnvelope,
 } from "react-icons/hi2";
 import emailjs from "@emailjs/browser";
+import FillTitle from "./FillTitle.jsx";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -67,9 +68,11 @@ const Contact = () => {
             </span>
             <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">Let's connect</p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            Tell me about your <span className="text-gradient">next build</span>
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Tell me about your" }, { text: "next build", accent: true }]}
+          />
           <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-3xl mx-auto">
             Open to backend engineering roles, payments platforms and cloud-native solutions. If you're building resilient
             financial systems or large-scale transaction platforms, I'd love to talk.

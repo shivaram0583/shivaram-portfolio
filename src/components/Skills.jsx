@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { SPRING } from "../lib/motion";
+import FillTitle from "./FillTitle.jsx";
 import {
   HiOutlineCodeBracket,
   HiOutlineServer,
@@ -141,9 +143,11 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">Capabilities</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6">
-            Technical <span className="text-gradient">Skills</span>
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6"
+            segments={[{ text: "Technical" }, { text: "Skills", accent: true }]}
+          />
           <p className="text-[#44403c] max-w-3xl mx-auto text-sm sm:text-base mt-3">
             Backend craftsmanship blended with <span className="text-[#b5451f] font-medium">payments domain expertise</span> and <span className="text-[#b5451f] font-medium">hybrid-cloud delivery</span>. I prioritize
             reliability, observability and clean API contracts that scale.
@@ -160,10 +164,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
+                whileHover={{ y: -6, transition: SPRING }}
                 className="group mb-6 break-inside-avoid"
               >
                 <div className="rounded-2xl bg-white border border-[#e7ded2] p-6 shadow-[0_10px_30px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_14px_36px_rgba(120,100,80,0.1)]">

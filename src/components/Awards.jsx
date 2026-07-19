@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { HiOutlineStar } from "react-icons/hi2";
+import FillTitle from "./FillTitle.jsx";
 
 const awards = [
   {
@@ -43,9 +44,11 @@ const Awards = () => {
             </span>
             <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">recognition</p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            Honors & <span className="text-gradient">Awards</span>
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Honors &" }, { text: "Awards", accent: true }]}
+          />
           <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-2xl mx-auto">
             Appreciations from programme leadership for going beyond delivery expectations and driving dependable launches.
           </p>

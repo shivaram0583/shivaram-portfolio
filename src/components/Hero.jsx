@@ -1,14 +1,82 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import profileImg from "../assets/profile.jpg";
+import MagneticButton from "./MagneticButton.jsx";
+import {
+  gsap,
+  SplitText,
+  HERO_DELAY,
+  EXPO,
+  prefersReducedMotion,
+} from "../lib/gsapConfig.js";
 
 const Hero = () => {
+  const sectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) {
+        gsap.set("#hero-title", { opacity: 1 });
+        return;
+      }
+
+      // Character-level headline build, timed to start as the loader lifts.
+      const split = SplitText.create("#hero-title", {
+        type: "words,chars",
+        autoSplit: true,
+        onSplit(self) {
+          gsap.set("#hero-title", { opacity: 1 });
+          return gsap.from(self.chars, {
+            yPercent: 90,
+            autoAlpha: 0,
+            filter: "blur(6px)",
+            duration: 1.05,
+            ease: EXPO,
+            stagger: { each: 0.024, from: "start" },
+            delay: HERO_DELAY,
+          });
+        },
+      });
+
+      gsap.from(".hero-eyebrow", {
+        opacity: 0,
+        y: 14,
+        letterSpacing: "0.75em",
+        duration: 1.1,
+        ease: EXPO,
+        delay: HERO_DELAY + 0.1,
+      });
+
+      gsap.fromTo(
+        ".hero-photo-card",
+        { clipPath: "inset(100% 0% 0% 0% round 2.5rem)" },
+        {
+          clipPath: "inset(0% 0% 0% 0% round 2.5rem)",
+          duration: 1.2,
+          ease: EXPO,
+          delay: HERO_DELAY + 0.15,
+        }
+      );
+      gsap.fromTo(
+        "#hero-photo-img",
+        { scale: 1.35 },
+        { scale: 1, duration: 1.7, ease: EXPO, delay: HERO_DELAY + 0.15 }
+      );
+
+      return () => split.revert();
+    },
+    { scope: sectionRef }
+  );
+
   return (
     <section
       id="home"
+      ref={sectionRef}
       className="relative px-6 sm:px-12 lg:px-24 py-24 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div data-speed="0.9" className="pointer-events-none absolute inset-0 -z-10">
         <motion.div 
           className="absolute -top-32 -left-32 h-96 w-96 bg-[#b5451f]/10 blur-3xl rounded-full"
           animate={{
@@ -99,38 +167,22 @@ const Hero = () => {
               >
                 <HiOutlineRocketLaunch size={22} />
               </motion.span>
-              <motion.p 
-                className="text-xs uppercase tracking-[0.5em] text-[#8a837c] font-medium"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-              >
+              <p className="hero-eyebrow text-xs uppercase tracking-[0.5em] text-[#8a837c] font-medium">
                 Java Backend • Microservices • Cloud Native
-              </motion.p>
+              </p>
             </div>
-            <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+            <h1
+              id="hero-title"
+              className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.12] opacity-0"
             >
-              I'm{" "}
-              <motion.span 
-                className="text-gradient"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                Venkata Shivaram Doddi
-              </motion.span>
-            </motion.h1>
+              I'm <span className="text-gradient">Venkata Shivaram Doddi</span>
+            </h1>
             <motion.p
               className="text-lg text-[#44403c] leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
+              transition={{ delay: HERO_DELAY + 0.35, duration: 0.7, ease: "easeOut" }}
             >
               Software Engineer with 5 years of experience in{" "}
               <span className="text-[#b5451f] font-medium">
@@ -143,29 +195,19 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.7, ease: "easeOut" }}
+              transition={{ delay: HERO_DELAY + 0.5, duration: 0.7, ease: "easeOut" }}
             >
-              <motion.a
-                href="#projects"
-                className="btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <MagneticButton href="#projects" className="btn-primary" strength={0.5}>
                 View My Work
-              </motion.a>
-              <motion.a
-                href="#contact"
-                className="btn-secondary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              </MagneticButton>
+              <MagneticButton href="#contact" className="btn-secondary" strength={0.5}>
                 Get In Touch
-              </motion.a>
+              </MagneticButton>
             </motion.div>
           </motion.div>
 
+          <div data-lag="0.18" className="flex justify-center lg:justify-end">
           <motion.div
-            className="flex justify-center lg:justify-end"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -178,13 +220,14 @@ const Hero = () => {
               }}
               transition={{ duration: 0.3 }}
             >
-              <motion.div 
-                className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-[#e7ded2] bg-white shadow-[0_24px_60px_rgba(120,100,80,0.18)]"
+              <motion.div
+                className="hero-photo-card relative w-64 h-64 sm:w-72 sm:h-72 rounded-[2.5rem] overflow-hidden border border-[#e7ded2] bg-white shadow-[0_24px_60px_rgba(120,100,80,0.18)]"
                 whileHover={{
                   borderColor: "#d8ccbb",
                 }}
               >
                 <img
+                  id="hero-photo-img"
                   src={profileImg}
                   alt="Venkata Shivaram Doddi"
                   className="w-full h-full object-cover"
@@ -206,7 +249,7 @@ const Hero = () => {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
+                transition={{ delay: HERO_DELAY + 0.8, duration: 0.5, ease: "easeOut" }}
                 whileHover={{
                   scale: 1.1,
                   borderColor: "rgba(181, 69, 31, 0.5)",
@@ -217,6 +260,7 @@ const Hero = () => {
               </motion.div>
             </motion.div>
           </motion.div>
+          </div>
         </div>
 
         <motion.div

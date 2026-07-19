@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
+import FillTitle from "./FillTitle.jsx";
 
 const Education = () => {
   return (
@@ -12,9 +13,11 @@ const Education = () => {
             </span>
             <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">academics</p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            <span className="text-gradient">Education</span> & Coursework
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Education", accent: true }, { text: "& Coursework" }]}
+          />
           <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-2xl mx-auto">
             Computer science foundation with emphasis on distributed systems and secure software delivery.
           </p>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { HiOutlineUserGroup } from "react-icons/hi";
+import FillTitle from "./FillTitle.jsx";
+import CountUp from "./CountUp.jsx";
 
 const Summary = () => {
   const stats = [
@@ -23,9 +25,11 @@ const Summary = () => {
           <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
             <HiOutlineUserGroup size={24} />
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            Professional <span className="text-gradient">Summary</span>
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Professional" }, { text: "Summary", accent: true }]}
+          />
         </div>
         <p className="text-[#44403c] max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
           Software Engineer with 5 years of experience in designing and developing microservices, cloud-native applications, and real-time payment systems. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, AWS, and distributed system design. Hands-on experience implementing ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing with strong focus on clean code, CI/CD, and Agile delivery.
@@ -38,7 +42,9 @@ const Summary = () => {
               className="rounded-2xl border border-[#e7ded2] bg-[#faf7f2] p-4"
             >
               <p className="text-xs uppercase tracking-[0.3em] text-[#8a837c]">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-[#b5451f]">{item.value}</p>
+              <p className="mt-2 text-2xl font-semibold text-[#b5451f]">
+                <CountUp value={item.value} />
+              </p>
               <p className="text-xs text-[#6b6560]">{item.detail}</p>
             </div>
           ))}
