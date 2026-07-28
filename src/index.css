@@ -1,16 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --ink: #1c1917;
-  --paper: #faf7f2;
-  --accent: #b5451f;
-  --accent-strong: #973714;
-  --accent-tint: #f7ece6;
-  --hairline: #e7ded2;
+  --bg: #08080a;
+  --surface: #131317;
+  --surface-2: #1a1a20;
+  --border: #26262e;
+  --border-hi: #35353f;
+  --text: #ededef;
+  --text-2: #a1a1aa;
+  --text-3: #8b8b96;
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-glow: rgba(99, 102, 241, 0.35);
 }
 
 html {
@@ -20,115 +25,303 @@ html {
 body {
   @apply antialiased;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  color: #44403c;
-  background-color: #faf7f2;
-  background-image:
-    radial-gradient(1100px circle at 12% 8%, rgba(181, 69, 31, 0.06) 0%, transparent 55%),
-    radial-gradient(900px circle at 88% 18%, rgba(217, 119, 6, 0.05) 0%, transparent 55%),
-    radial-gradient(800px circle at 70% 95%, rgba(120, 113, 108, 0.05) 0%, transparent 55%);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+  color: #a1a1aa;
+  background-color: #08080a;
   min-height: 100vh;
 }
 
-/* Serif editorial headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
-  font-optical-sizing: auto;
-  color: #1c1917;
-  @apply tracking-tight;
+/* Ambient depth — light pooling from above, subtle and static. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  /* The .aurora layer owns the glow up top; these keep depth further down. */
+  background:
+    radial-gradient(720px circle at 14% 34%, rgba(139, 92, 246, 0.035) 0%, transparent 58%),
+    radial-gradient(760px circle at 88% 68%, rgba(59, 130, 246, 0.03) 0%, transparent 58%);
 }
 
-/* Custom scrollbar */
+/* ---- Ambient starfield + aurora (GitHub-style backdrop) ---- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Fade the field out toward the bottom so lower sections stay calm. */
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 92%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 55%,
+    transparent 92%
+  );
+}
+
+/* Wrapper carries the cursor-follow transform; the inner element keeps its
+   own CSS breathe animation, so the two never fight over `transform`. */
+.aurora-wrap,
+.star-parallax {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.aurora {
+  position: absolute;
+  top: -38vh;
+  left: -20vw;
+  width: 140vw;
+  height: 95vh;
+  /* Kept deliberately faint — it should read as depth, not as a light source. */
+  background:
+    radial-gradient(
+      48% 50% at 50% 50%,
+      rgba(99, 102, 241, 0.085) 0%,
+      rgba(99, 102, 241, 0.035) 42%,
+      transparent 70%
+    ),
+    radial-gradient(
+      38% 42% at 33% 58%,
+      rgba(139, 92, 246, 0.06) 0%,
+      transparent 72%
+    ),
+    radial-gradient(
+      34% 44% at 69% 46%,
+      rgba(56, 132, 255, 0.05) 0%,
+      transparent 72%
+    );
+  animation: aurora-breathe 22s ease-in-out infinite alternate;
+}
+
+/* Constellation canvas */
+.constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes aurora-breathe {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate3d(2%, 3%, 0) scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ededef;
+  letter-spacing: -0.028em;
+  font-weight: 600;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Eyebrow label above section titles */
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8b8b96;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f0e9df;
+  background: #08080a;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #d8ccbb;
+  background: #26262e;
   border-radius: 6px;
-  border: 2px solid #f0e9df;
+  border: 2px solid #08080a;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #b5451f;
+  background: #3f3f4a;
 }
 
-/* Custom animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Utility classes */
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-/* Editorial accent for highlighted heading words */
-.text-gradient {
-  color: #b5451f;
-  font-style: italic;
-}
-
-.glass-effect {
-  @apply backdrop-blur-md bg-white/70 border border-[#e7ded2];
-}
-
-.text-shadow {
-  text-shadow: 0 1px 2px rgba(28, 25, 23, 0.08);
-}
-
-/* Selection styling */
 ::selection {
-  background: rgba(181, 69, 31, 0.16);
-  color: #1c1917;
+  background: rgba(99, 102, 241, 0.32);
+  color: #fff;
 }
 
-/* Focus styles */
+/* Accent gradient text — used for the highlighted word in headings */
+.text-gradient {
+  background: linear-gradient(100deg, #818cf8 0%, #a78bfa 50%, #818cf8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Card: dark surface with a hairline top highlight (light-from-above) */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.028) 0%, rgba(255, 255, 255, 0) 45%), #131317;
+  border: 1px solid #26262e;
+  border-radius: 16px;
+  transition: border-color 0.35s ease, background-color 0.35s ease, transform 0.35s ease;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  opacity: 0.7;
+}
+.card:hover {
+  border-color: #35353f;
+}
+
+/* Chip / tag */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid #26262e;
+  background: rgba(255, 255, 255, 0.022);
+  color: #a1a1aa;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+.chip:hover {
+  color: #ededef;
+  border-color: #454551;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Focus */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-[#b5451f]/40 focus:ring-offset-2;
-  --tw-ring-offset-color: #faf7f2;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  --tw-ring-color: rgba(99, 102, 241, 0.55);
+  --tw-ring-offset-color: #08080a;
 }
 
-/* Smooth transitions */
-.transition-smooth {
-  @apply transition-all duration-300 ease-in-out;
-}
-
-/* Hover lift effect */
-.hover-lift {
-  @apply transition-transform duration-300 hover:-translate-y-1;
-}
-
-/* Button styles */
+/* Buttons */
 .btn-primary {
-  @apply px-6 py-3 rounded-full bg-[#b5451f] text-[#faf7f2] font-medium transition-all duration-200 hover:bg-[#973714] active:bg-[#7f2f10] focus-ring;
+  @apply relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-white focus-ring;
+  background: linear-gradient(180deg, #6366f1 0%, #5457e5 100%);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.16) inset, 0 8px 24px -8px var(--accent-glow);
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.2) inset, 0 12px 32px -8px rgba(99, 102, 241, 0.5);
 }
 
 .btn-secondary {
-  @apply px-6 py-3 rounded-full border border-[#d8ccbb] text-[#1c1917] font-medium transition-all duration-200 hover:bg-white hover:border-[#b5451f] focus-ring;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium focus-ring;
+  color: #ededef;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2e2e37;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: #454551;
 }
 
-/* Scrollbar hide utility */
+/* Hover lift — CSS only, so GSAP owns the element's scroll transform
+   without the two fighting over the same property. */
+.lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Nav underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-link.is-active {
+  color: #ededef;
+}
+
+/* Timeline node — dims until its entry is reached */
+.exp-dot {
+  transition: background-color 0.5s ease, border-color 0.5s ease,
+    box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.exp-dot.is-live {
+  border-color: #6366f1;
+  background-color: #6366f1;
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.16),
+    0 0 22px rgba(99, 102, 241, 0.55);
+}
+
+/* Spotlight: radial glow follows the cursor across a card */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(99, 102, 241, 0.14),
+    transparent 68%
+  );
+  z-index: -1;
+}
+.spotlight:hover::after {
+  opacity: 1;
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import FillTitle from "./FillTitle.jsx";
 import {
   HiOutlineCodeBracket,
   HiOutlineServer,
@@ -140,12 +140,14 @@ const Skills = () => {
     <section id="skills" className="px-6 sm:px-12 lg:px-24 py-16">
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">Capabilities</p>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6">
-            Technical <span className="text-gradient">Skills</span>
-          </h2>
-          <p className="text-[#44403c] max-w-3xl mx-auto text-sm sm:text-base mt-3">
-            Backend craftsmanship blended with <span className="text-[#b5451f] font-medium">payments domain expertise</span> and <span className="text-[#b5451f] font-medium">hybrid-cloud delivery</span>. I prioritize
+          <p className="text-xs uppercase tracking-[0.5em] text-[#8b8b96]">Capabilities</p>
+          <FillTitle
+            as="h2"
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6"
+            segments={[{ text: "Technical" }, { text: "Skills", accent: true }]}
+          />
+          <p className="text-[#a1a1aa] max-w-3xl mx-auto text-sm sm:text-base mt-3">
+            Backend craftsmanship blended with <span className="text-[#a78bfa] font-medium">payments domain expertise</span> and <span className="text-[#a78bfa] font-medium">hybrid-cloud delivery</span>. I prioritize
             reliability, observability and clean API contracts that scale.
           </p>
         </div>
@@ -154,54 +156,28 @@ const Skills = () => {
           {categories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
-                className="group mb-6 break-inside-avoid"
-              >
-                <div className="rounded-2xl bg-white border border-[#e7ded2] p-6 shadow-[0_10px_30px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_14px_36px_rgba(120,100,80,0.1)]">
+              <div key={cat.title} className="group mb-6 break-inside-avoid">
+                <div data-reveal className="card spotlight lift p-6">
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f] transition-all duration-200 group-hover:border-[#e0c3b6]">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/10 border border-indigo-400/20 text-[#a78bfa] transition-all duration-200 group-hover:border-indigo-400/40">
                       <Icon size={20} />
                     </span>
                     <div>
-                      <h3 className="text-base font-semibold text-[#1c1917] transition-colors duration-300 group-hover:text-[#b5451f]">
+                      <h3 className="text-base font-semibold text-[#ededef] transition-colors duration-300 group-hover:text-[#a78bfa]">
                         {cat.title}
                       </h3>
-                      <p className="text-xs text-[#8a837c] mt-1">{cat.blurb}</p>
+                      <p className="text-xs text-[#8b8b96] mt-1">{cat.blurb}</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {cat.items.map((item, itemIdx) => (
-                      <motion.span
-                        key={item}
-                        className="px-2.5 py-1 rounded-full bg-[#faf7f2] text-xs text-[#57534e] border border-[#e7ded2] transition-all duration-200 hover:border-[#d8ccbb] hover:text-[#b5451f]"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ 
-                          duration: 0.4, 
-                          delay: 0.1 + itemIdx * 0.05,
-                          ease: "easeOut"
-                        }}
-                        whileHover={{
-                          scale: 1.05,
-                          transition: { duration: 0.2 }
-                        }}
-                      >
+                    {cat.items.map((item) => (
+                      <span key={item} className="chip px-2.5 py-1 text-xs">
                         {item}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

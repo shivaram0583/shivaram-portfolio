@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { HiOutlineUserGroup } from "react-icons/hi";
+import FillTitle from "./FillTitle.jsx";
+import CountUp from "./CountUp.jsx";
 
 const Summary = () => {
   const stats = [
@@ -17,17 +19,19 @@ const Summary = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto rounded-3xl bg-white border border-[#e7ded2] p-6 sm:p-10 text-center shadow-[0_16px_44px_rgba(120,100,80,0.08)]"
+        className="card max-w-6xl mx-auto p-6 sm:p-12 text-center"
       >
         <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
+          <span data-pop className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 border border-indigo-400/20 text-[#a78bfa]">
             <HiOutlineUserGroup size={24} />
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            Professional <span className="text-gradient">Summary</span>
-          </h2>
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Professional" }, { text: "Summary", accent: true }]}
+          />
         </div>
-        <p className="text-[#44403c] max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
+        <p className="text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
           Software Engineer with 5 years of experience in designing and developing microservices, cloud-native applications, and real-time payment systems. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, AWS, and distributed system design. Hands-on experience implementing ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing with strong focus on clean code, CI/CD, and Agile delivery.
         </p>
 
@@ -35,11 +39,13 @@ const Summary = () => {
           {stats.map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-[#e7ded2] bg-[#faf7f2] p-4"
+              className="rounded-2xl border border-[#26262e] bg-white/[0.03] p-4"
             >
-              <p className="text-xs uppercase tracking-[0.3em] text-[#8a837c]">{item.label}</p>
-              <p className="mt-2 text-2xl font-semibold text-[#b5451f]">{item.value}</p>
-              <p className="text-xs text-[#6b6560]">{item.detail}</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#8b8b96]">{item.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-[#a78bfa]">
+                <CountUp value={item.value} />
+              </p>
+              <p className="text-xs text-[#a1a1aa]">{item.detail}</p>
             </div>
           ))}
         </div>
@@ -48,7 +54,7 @@ const Summary = () => {
           {traits.map((trait) => (
             <span
               key={trait}
-              className="px-3 py-1 rounded-full border border-[#e7ded2] text-[#44403c] bg-white"
+              className="px-3 py-1 rounded-full border border-[#26262e] text-[#a1a1aa] bg-[#131317]"
             >
               {trait}
             </span>

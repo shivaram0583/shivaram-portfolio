@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { HiOutlineStar } from "react-icons/hi2";
+import FillTitle from "./FillTitle.jsx";
 
 const awards = [
   {
@@ -38,34 +38,31 @@ const Awards = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f7ece6] border border-[#ead7cd] text-[#b5451f]">
+            <span data-pop className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 border border-indigo-400/20 text-[#a78bfa]">
               <HiOutlineStar size={22} />
             </span>
-            <p className="text-xs uppercase tracking-[0.5em] text-[#8a837c]">recognition</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-[#8b8b96]">recognition</p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-semibold">
-            Honors & <span className="text-gradient">Awards</span>
-          </h2>
-          <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+          <FillTitle
+            as="h2"
+            className="text-3xl sm:text-4xl font-semibold"
+            segments={[{ text: "Honors &" }, { text: "Awards", accent: true }]}
+          />
+          <p className="text-[#a1a1aa] mt-3 text-sm sm:text-base max-w-2xl mx-auto">
             Appreciations from programme leadership for going beyond delivery expectations and driving dependable launches.
           </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {awards.map((award, idx) => (
-            <motion.div
-              key={`${award.title}-${award.date}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-3xl bg-white border border-[#e7ded2] p-6 shadow-[0_12px_32px_rgba(120,100,80,0.08)] hover:-translate-y-1 hover:border-[#d8ccbb] hover:shadow-[0_18px_40px_rgba(120,100,80,0.12)] transition-all duration-200 text-left"
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-[#b5451f] mb-2">{award.date}</p>
-              <h3 className="font-semibold text-lg text-[#1c1917]">{award.title}</h3>
-              <p className="text-xs text-[#8a837c] mb-3">{award.org}</p>
-              <p className="text-sm text-[#44403c] leading-relaxed">{award.description}</p>
-            </motion.div>
+            <div key={`${award.title}-${award.date}`} data-reveal>
+              <div className="card spotlight lift p-6 text-left h-full">
+                <p className="text-xs uppercase tracking-[0.3em] text-[#a78bfa] mb-2">{award.date}</p>
+                <h3 className="font-semibold text-lg text-[#ededef]">{award.title}</h3>
+                <p className="text-xs text-[#8b8b96] mb-3">{award.org}</p>
+                <p className="text-sm text-[#a1a1aa] leading-relaxed">{award.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
