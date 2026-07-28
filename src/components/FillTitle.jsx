@@ -14,7 +14,7 @@ const FillTitle = ({ as: Tag = "h2", className = "", segments }) => {
       const words = ref.current.querySelectorAll("[data-fill-word]");
       gsap.fromTo(
         words,
-        { color: "#ddd2c3" },
+        { color: "#3f3f4a" },
         {
           color: (i, el) => el.dataset.finalColor,
           stagger: 0.18,
@@ -38,8 +38,9 @@ const FillTitle = ({ as: Tag = "h2", className = "", segments }) => {
           <span
             key={`${i}-${j}`}
             data-fill-word
-            data-final-color={seg.accent ? "#b5451f" : "#1c1917"}
-            className={`inline-block ${seg.accent ? "text-gradient" : ""}`}
+            data-final-color={seg.accent ? "#a78bfa" : "#ededef"}
+            className="inline-block"
+            style={{ color: seg.accent ? "#a78bfa" : "#ededef" }}
           >
             {word}
             {" "}

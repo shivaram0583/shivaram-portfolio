@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { SPRING } from "../lib/motion";
 import { HiOutlineBeaker } from "react-icons/hi2";
 import FillTitle from "./FillTitle.jsx";
 
@@ -56,56 +55,49 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-[#ead7cd] text-[#b5451f] shadow-[0_6px_18px_rgba(120,100,80,0.08)]" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+            <span data-pop className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 border border-indigo-400/20 text-[#a78bfa]">
               <HiOutlineBeaker size={22} />
-            </motion.span>
+            </span>
           </div>
           <FillTitle
             as="h2"
             className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
             segments={[{ text: "Featured" }, { text: "Projects", accent: true }]}
           />
-          <p className="text-[#6b6560] mt-3 text-sm sm:text-base max-w-3xl mx-auto">
-            Production-grade side projects that demonstrate <span className="text-[#b5451f] font-medium">API design</span>, <span className="text-[#b5451f] font-medium">orchestration</span> and <span className="text-[#b5451f] font-medium">full-stack craftsmanship</span>.
+          <p className="text-[#a1a1aa] mt-3 text-sm sm:text-base max-w-3xl mx-auto">
+            Production-grade side projects that demonstrate <span className="text-[#a78bfa] font-medium">API design</span>, <span className="text-[#a78bfa] font-medium">orchestration</span> and <span className="text-[#a78bfa] font-medium">full-stack craftsmanship</span>.
           </p>
         </div>
 
         <div className="grid gap-6">
           {projects.map((project, idx) => (
-            <motion.article
-              key={project.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
-              whileHover={{ y: -6, transition: SPRING }}
-              className="group rounded-2xl bg-white border border-[#e7ded2] p-6 sm:p-8 shadow-[0_10px_30px_rgba(120,100,80,0.06)] transition-all duration-200 hover:border-[#d8ccbb] hover:shadow-[0_18px_44px_rgba(120,100,80,0.12)]"
-            >
+            <div key={project.name} data-reveal>
+            <article className="card spotlight lift group p-6 sm:p-8">
               <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-stretch">
                 <div className="flex flex-col">
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     {project.featured && (
-                      <span className="text-[10px] uppercase tracking-[0.3em] text-[#b5451f] bg-[#f7ece6] px-2.5 py-1 rounded-full border border-[#ead7cd]">
+                      <span className="text-[10px] uppercase tracking-[0.3em] text-[#a78bfa] bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-400/20">
                         Latest Build
                       </span>
                     )}
-                    <span className="text-xs text-[#57534e] bg-[#faf7f2] px-2 py-1 rounded-full border border-[#e7ded2]">
+                    <span className="text-xs text-[#a1a1aa] bg-white/[0.03] px-2 py-1 rounded-full border border-[#26262e]">
                       {project.date}
                     </span>
                   </div>
-                  <h3 className="font-semibold text-2xl sm:text-3xl text-[#1c1917] group-hover:text-[#b5451f] transition-colors">
+                  <h3 className="font-semibold text-2xl sm:text-3xl text-[#ededef] group-hover:text-[#a78bfa] transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-sm sm:text-base text-[#44403c] mt-4 leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#a1a1aa] mt-4 leading-relaxed">
                     {project.description}
                   </p>
                   <div className="mt-auto pt-6">
-                    <p className="text-xs uppercase tracking-[0.25em] text-[#8a837c] mb-3">Built with</p>
+                    <p className="text-xs uppercase tracking-[0.25em] text-[#8b8b96] mb-3">Built with</p>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {project.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2.5 py-1 text-xs rounded-full bg-[#faf7f2] text-[#57534e] border border-[#e7ded2] hover:border-[#d8ccbb] hover:text-[#b5451f] transition-all duration-200 cursor-default"
+                          className="chip px-2.5 py-1 text-xs cursor-default"
                         >
                           {t}
                         </span>
@@ -115,7 +107,7 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-[#b5451f] bg-[#b5451f] px-4 py-2 text-sm text-[#faf7f2] hover:bg-[#973714] hover:border-[#973714] font-medium transition-colors"
+                      className="inline-flex items-center gap-2 rounded-full border border-indigo-500 bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-600 hover:border-indigo-600 font-medium transition-colors"
                     >
                       <span>View on GitHub</span>
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,19 +116,20 @@ const Projects = () => {
                     </a>
                   </div>
                 </div>
-                <div className="rounded-xl bg-[#faf7f2] border border-[#e7ded2] p-5 sm:p-6">
-                  <p className="text-xs uppercase tracking-[0.25em] text-[#8a837c] mb-4">Key Features</p>
+                <div className="rounded-xl bg-white/[0.03] border border-[#26262e] p-5 sm:p-6">
+                  <p className="text-xs uppercase tracking-[0.25em] text-[#8b8b96] mb-4">Key Features</p>
                   <ul className="space-y-3.5">
                     {project.highlights.map((h) => (
-                      <li key={h} className="flex gap-3 text-sm text-[#44403c] leading-relaxed">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#b5451f] to-[#d97706] flex-shrink-0" />
+                      <li key={h} className="flex gap-3 text-sm text-[#a1a1aa] leading-relaxed">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 flex-shrink-0" />
                         <span>{h}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
-            </motion.article>
+            </article>
+            </div>
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { HiOutlineBriefcase, HiMiniCheckCircle } from "react-icons/hi2";
 import FillTitle from "./FillTitle.jsx";
-import { gsap, prefersReducedMotion } from "../lib/gsapConfig.js";
+import { gsap, ScrollTrigger, prefersReducedMotion } from "../lib/gsapConfig.js";
 
 const experiences = [
   {
@@ -142,6 +142,18 @@ const Experience = () => {
           },
         });
       });
+
+      // Each timeline node lights up while its role is the one being read.
+      gsap.utils.toArray("[data-exp-item]").forEach((item) => {
+        const dot = item.querySelector(".exp-dot");
+        if (!dot) return;
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 72%",
+          end: "bottom 45%",
+          onToggle: (self) => dot.classList.toggle("is-live", self.isActive),
+        });
+      });
     },
     { scope: sectionRef }
   );
@@ -151,17 +163,17 @@ const Experience = () => {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
-            <motion.span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-[#ead7cd] text-[#b5451f] shadow-[0_6px_18px_rgba(120,100,80,0.08)]" animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
+            <span data-pop className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 border border-indigo-400/20 text-[#a78bfa]">
               <HiOutlineBriefcase size={22} />
-            </motion.span>
+            </span>
           </div>
           <FillTitle
             as="h2"
             className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
             segments={[{ text: "Professional" }, { text: "Experience", accent: true }]}
           />
-          <p className="text-[#6b6560] text-sm sm:text-base mt-4 max-w-3xl mx-auto">
-            Enterprise software engineering across <span className="text-[#b5451f] font-medium">payment systems</span>, <span className="text-[#b5451f] font-medium">cloud migration</span>, and <span className="text-[#b5451f] font-medium">microservices architecture</span>.
+          <p className="text-[#a1a1aa] text-sm sm:text-base mt-4 max-w-3xl mx-auto">
+            Enterprise software engineering across <span className="text-[#a78bfa] font-medium">payment systems</span>, <span className="text-[#a78bfa] font-medium">cloud migration</span>, and <span className="text-[#a78bfa] font-medium">microservices architecture</span>.
             I focus on scalable solutions, clean code practices, and measurable business outcomes.
           </p>
         </div>
@@ -170,7 +182,7 @@ const Experience = () => {
           {experiences.map((exp, idx) => (
             <motion.div 
               key={exp.company} 
-              className="relative pl-10 md:pl-16 border-l border-[#e7ded2]"
+              className="relative pl-10 md:pl-16 border-l border-[#26262e]"
               initial={{ opacity: 0, x: -30 }}
               data-exp-item
               whileInView={{ opacity: 1, x: 0 }}
@@ -179,43 +191,32 @@ const Experience = () => {
             >
               <span
                 aria-hidden="true"
-                className="exp-line absolute -left-[2px] top-0 h-full w-[3px] origin-top scale-y-0 rounded-full bg-gradient-to-b from-[#b5451f] to-[#d97706]"
+                className="exp-line absolute -left-[2px] top-0 h-full w-[3px] origin-top scale-y-0 rounded-full bg-gradient-to-b from-indigo-400 to-violet-400"
               />
-              <motion.span
-                className="absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-[#faf7f2] border-2 border-[#e0c3b6] flex items-center justify-center text-[10px] text-[#b5451f]"
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: idx * 0.5,
-                  ease: "easeInOut"
-                }}
-              >
+              <span className="exp-dot absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-[#131317] border-2 border-[#35353f] flex items-center justify-center text-[10px] text-[#8b8b96]">
                 ★
-              </motion.span>
+              </span>
               <motion.article
-                className="rounded-2xl bg-white border border-[#e7ded2] p-6 sm:p-8 shadow-[0_10px_30px_rgba(120,100,80,0.06)] text-left overflow-hidden group transition-all duration-200"
+                className="card spotlight p-6 sm:p-8 text-left group"
                 whileHover={{
                   y: -5,
-                  boxShadow: "0 18px 40px -8px rgba(120, 100, 80, 0.18)",
+                  boxShadow: "0 18px 40px -8px rgba(0, 0, 0, 0.18)",
                 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
                   <div className="lg:w-2/5 space-y-3">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.35em] text-[#b5451f]">{exp.period}</p>
-                      <h3 className="mt-2 text-[1.4rem] sm:text-2xl font-semibold text-[#1c1917]">{exp.role}</h3>
-                      <p className="text-sm text-[#44403c]">{exp.company}</p>
-                      <p className="text-xs text-[#8a837c]">{exp.location}</p>
+                      <p className="text-xs uppercase tracking-[0.35em] text-[#a78bfa]">{exp.period}</p>
+                      <h3 className="mt-2 text-[1.4rem] sm:text-2xl font-semibold text-[#ededef]">{exp.role}</h3>
+                      <p className="text-sm text-[#a1a1aa]">{exp.company}</p>
+                      <p className="text-xs text-[#8b8b96]">{exp.location}</p>
                     </div>
                     <div className="flex flex-wrap gap-2 text-[11px]">
                       {exp.stack.map((tag, tagIdx) => (
                         <motion.span
                           key={`${exp.company}-${tag}`}
-                          className="px-2.5 py-0.5 rounded-full bg-[#faf7f2] text-[11px] text-[#57534e] border border-[#e7ded2] hover:border-[#d8ccbb] hover:text-[#b5451f] transition-all duration-200 cursor-default"
+                          className="chip px-2.5 py-0.5 text-[11px] cursor-default"
                           whileHover={{ 
                             scale: 1.05,
                           }}
@@ -230,7 +231,7 @@ const Experience = () => {
                   </div>
                   <div className="lg:flex-1 space-y-5">
                     <motion.p 
-                      className="text-sm text-[#44403c] leading-relaxed lg:text-base"
+                      className="text-sm text-[#a1a1aa] leading-relaxed lg:text-base"
                       whileHover={{ x: 2 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     >
@@ -240,7 +241,7 @@ const Experience = () => {
                       {exp.highlights.map((item, highlightIdx) => (
                         <motion.div
                           key={item.title}
-                          className="rounded-xl border border-[#e7ded2] bg-[#faf7f2] p-4 flex gap-3 items-start group/highlight transition-all duration-200"
+                          className="rounded-xl border border-[#26262e] bg-white/[0.03] p-4 flex gap-3 items-start group/highlight transition-all duration-200"
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
@@ -248,11 +249,11 @@ const Experience = () => {
                           whileHover={{
                             y: -2,
                             borderColor: "#d8ccbb",
-                            boxShadow: "0 8px 20px -4px rgba(120, 100, 80, 0.14)",
+                            boxShadow: "0 8px 20px -4px rgba(0, 0, 0, 0.14)",
                           }}
                         >
                           <motion.div 
-                            className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-[#b5451f] to-[#d97706] flex-shrink-0"
+                            className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 flex-shrink-0"
                             animate={{
                               scale: [1, 1.3, 1],
                             }}
@@ -264,10 +265,10 @@ const Experience = () => {
                             }}
                           />
                           <div>
-                            <p className="text-sm font-medium text-[#1c1917] group-hover/highlight:text-[#b5451f] transition-colors">
+                            <p className="text-sm font-medium text-[#ededef] group-hover/highlight:text-[#a78bfa] transition-colors">
                               {item.title}
                             </p>
-                            <p className="text-xs text-[#6b6560] mt-1 leading-relaxed">{item.description}</p>
+                            <p className="text-xs text-[#a1a1aa] mt-1 leading-relaxed">{item.description}</p>
                           </div>
                         </motion.div>
                       ))}
