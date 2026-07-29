@@ -131,7 +131,7 @@ const Hero = () => {
 
             <p className="hero-fade text-base text-[#a1a1aa] leading-relaxed max-w-xl mx-auto lg:mx-0 text-pretty">
               Software engineer with 5 years designing microservices, cloud-native
-              platforms and real-time payment rails with Java, Spring Boot and AWS —
+              platforms and real-time payment rails with Java, Spring Boot and AWS 
               across ISO 20022, SWIFT, CHAPS and Faster Payments.
             </p>
 
@@ -163,7 +163,7 @@ const Hero = () => {
               >
                 <p className="text-xl font-semibold text-[#ededef] leading-none">5+</p>
                 <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[#8b8b96]">
-                  Years shipping
+                  Years Experience
                 </p>
               </motion.div>
             </div>
