@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { Fragment, useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import {
+  HiOutlineBuildingLibrary,
+  HiOutlineSquares2X2,
+  HiOutlineBolt,
+} from "react-icons/hi2";
 import profileImg from "../assets/profile.jpg";
 import MagneticButton from "./MagneticButton.jsx";
 import Spotlight from "./Spotlight.jsx";
@@ -24,14 +29,17 @@ const pillars = [
   {
     label: "Enterprise Banking Platforms",
     sub: "Corporate & Bulk Listed Payments",
+    icon: HiOutlineBuildingLibrary,
   },
   {
     label: "Microservices & Distributed Systems",
     sub: "Java · Spring Boot · AWS · Camunda",
+    icon: HiOutlineSquares2X2,
   },
   {
     label: "Real-time Payment Processing",
     sub: "ISO 20022 · SWIFT · CHAPS · FPS",
+    icon: HiOutlineBolt,
   },
 ];
 
@@ -95,13 +103,17 @@ const Hero = () => {
       <div className="hero-inner max-w-6xl mx-auto grid gap-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.82fr)] items-center">
           <div className="space-y-7 text-center lg:text-left">
-            <div className="hero-pill inline-flex items-center gap-2.5 rounded-full border border-[#26262e] bg-white/[0.03] px-3.5 py-1.5">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <div className="hero-pill current-role inline-flex items-center gap-3 rounded-full border border-indigo-400/40 bg-indigo-500/[0.13] px-4 py-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
               </span>
-              <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[#a1a1aa]">
-                Senior Software Engineer · Wells Fargo
+              <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-[#c7d2fe]">
+                Senior Software Engineer
+              </span>{" "}
+              <span className="h-3 w-px bg-indigo-400/35" aria-hidden="true" />{" "}
+              <span className="font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-white">
+                Wells Fargo
               </span>
             </div>
 
@@ -171,16 +183,23 @@ const Hero = () => {
         </div>
 
         <div className="hero-fade grid gap-4 sm:grid-cols-3">
-          {pillars.map((item) => (
-            <Spotlight key={item.label} className="card p-5">
-              <p className="text-sm font-medium text-[#ededef] leading-snug">
-                {item.label}
-              </p>
-              <p className="mt-2 font-mono text-[11px] text-[#8b8b96] leading-relaxed">
-                {item.sub}
-              </p>
-            </Spotlight>
-          ))}
+          {pillars.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Spotlight key={item.label} className="card pillar lift p-5">
+                <span className="pillar-bar" aria-hidden="true" />
+                <span className="pillar-icon inline-flex h-9 w-9 items-center justify-center rounded-lg border border-indigo-400/25 bg-indigo-500/10 text-[#a5b4fc]">
+                  <Icon size={17} />
+                </span>
+                <p className="mt-3.5 text-sm font-medium text-[#ededef] leading-snug">
+                  {item.label}
+                </p>
+                <p className="mt-1.5 font-mono text-[11px] text-[#8b8b96] leading-relaxed">
+                  {item.sub}
+                </p>
+              </Spotlight>
+            );
+          })}
         </div>
       </div>
     </section>

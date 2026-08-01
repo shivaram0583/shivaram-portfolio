@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { HiOutlineBriefcase, HiMiniCheckCircle } from "react-icons/hi2";
@@ -180,14 +179,10 @@ const Experience = () => {
 
         <div className="space-y-12">
           {experiences.map((exp, idx) => (
-            <motion.div 
-              key={exp.company} 
-              className="relative pl-10 md:pl-16 border-l border-[#26262e]"
-              initial={{ opacity: 0, x: -30 }}
+            <div
+              key={exp.company}
               data-exp-item
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+              className="relative pl-10 md:pl-16 border-l border-[#26262e]"
             >
               <span
                 aria-hidden="true"
@@ -196,87 +191,52 @@ const Experience = () => {
               <span className="exp-dot absolute -left-[14px] top-3 h-6 w-6 rounded-full bg-[#131317] border-2 border-[#35353f] flex items-center justify-center text-[10px] text-[#8b8b96]">
                 ★
               </span>
-              <motion.article
-                className="card spotlight p-6 sm:p-8 text-left group"
-                whileHover={{
-                  y: -5,
-                  boxShadow: "0 18px 40px -8px rgba(0, 0, 0, 0.18)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
-                  <div className="lg:w-2/5 space-y-3">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.35em] text-[#a78bfa]">{exp.period}</p>
-                      <h3 className="mt-2 text-[1.4rem] sm:text-2xl font-semibold text-[#ededef]">{exp.role}</h3>
-                      <p className="text-sm text-[#a1a1aa]">{exp.company}</p>
-                      <p className="text-xs text-[#8b8b96]">{exp.location}</p>
+              <div data-reveal>
+                <article className="card spotlight lift p-6 sm:p-8 text-left group">
+                  <div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+                    <div className="lg:w-2/5 space-y-3">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.35em] text-[#a78bfa]">{exp.period}</p>
+                        <h3 className="mt-2 text-[1.4rem] sm:text-2xl font-semibold text-[#ededef]">{exp.role}</h3>
+                        <p className="text-sm text-[#a1a1aa]">{exp.company}</p>
+                        <p className="text-xs text-[#8b8b96]">{exp.location}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-2 text-[11px]">
+                        {exp.stack.map((tag) => (
+                          <span
+                            key={`${exp.company}-${tag}`}
+                            className="chip px-2.5 py-0.5 text-[11px] cursor-default"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2 text-[11px]">
-                      {exp.stack.map((tag, tagIdx) => (
-                        <motion.span
-                          key={`${exp.company}-${tag}`}
-                          className="chip px-2.5 py-0.5 text-[11px] cursor-default"
-                          whileHover={{ 
-                            scale: 1.05,
-                          }}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.1 + tagIdx * 0.05, duration: 0.3 }}
-                        >
-                          {tag}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="lg:flex-1 space-y-5">
-                    <motion.p 
-                      className="text-sm text-[#a1a1aa] leading-relaxed lg:text-base"
-                      whileHover={{ x: 2 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                    >
-                      {exp.summary}
-                    </motion.p>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {exp.highlights.map((item, highlightIdx) => (
-                        <motion.div
-                          key={item.title}
-                          className="rounded-xl border border-[#26262e] bg-white/[0.03] p-4 flex gap-3 items-start group/highlight transition-all duration-200"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.1 + highlightIdx * 0.05, duration: 0.4, ease: "easeOut" }}
-                          whileHover={{
-                            y: -2,
-                            borderColor: "#d8ccbb",
-                            boxShadow: "0 8px 20px -4px rgba(0, 0, 0, 0.14)",
-                          }}
-                        >
-                          <motion.div 
-                            className="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 flex-shrink-0"
-                            animate={{
-                              scale: [1, 1.3, 1],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: highlightIdx * 0.3,
-                              ease: "easeInOut"
-                            }}
-                          />
-                          <div>
-                            <p className="text-sm font-medium text-[#ededef] group-hover/highlight:text-[#a78bfa] transition-colors">
-                              {item.title}
-                            </p>
-                            <p className="text-xs text-[#a1a1aa] mt-1 leading-relaxed">{item.description}</p>
+                    <div className="lg:flex-1 space-y-5">
+                      <p className="text-sm text-[#a1a1aa] leading-relaxed lg:text-base">
+                        {exp.summary}
+                      </p>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        {exp.highlights.map((item) => (
+                          <div
+                            key={item.title}
+                            className="hl-card rounded-xl border border-[#26262e] bg-white/[0.03] p-4 flex gap-3 items-start group/highlight"
+                          >
+                            <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400 flex-shrink-0" />
+                            <div>
+                              <p className="text-sm font-medium text-[#ededef] group-hover/highlight:text-[#a78bfa] transition-colors">
+                                {item.title}
+                              </p>
+                              <p className="text-xs text-[#a1a1aa] mt-1 leading-relaxed">{item.description}</p>
+                            </div>
                           </div>
-                        </motion.div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.article>
-            </motion.div>
+                </article>
+              </div>
+            </div>
           ))}
         </div>
       </div>

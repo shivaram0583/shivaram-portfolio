@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 .card::before {
   content: "";
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 12%;
   right: 12%;
   height: 1px;
@@ -284,28 +284,93 @@ h1, h2, h3, h4, h5, h6 {
     0 0 22px rgba(99, 102, 241, 0.55);
 }
 
-/* Spotlight: radial glow follows the cursor across a card */
+/* Spotlight: a glow element that tracks the cursor via transform only.
+   Moving a composited layer costs nothing; repainting a gradient does. */
 .spotlight {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
 }
-.spotlight::after {
-  content: "";
+.spotlight-glow {
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 460px;
+  height: 460px;
+  margin: -230px 0 0 -230px;
+  border-radius: 50%;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s ease;
+  will-change: transform;
   background: radial-gradient(
-    340px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(99, 102, 241, 0.14),
-    transparent 68%
+    circle,
+    rgba(99, 102, 241, 0.16) 0%,
+    rgba(99, 102, 241, 0.06) 42%,
+    transparent 70%
   );
-  z-index: -1;
 }
-.spotlight:hover::after {
+.spotlight:hover .spotlight-glow {
   opacity: 1;
+}
+
+/* Current-role badge — softly pulsing ring marks where I work now. */
+.current-role {
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.12),
+    0 10px 30px -12px rgba(99, 102, 241, 0.55);
+  animation: role-glow 4.5s ease-in-out infinite;
+}
+@keyframes role-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.12),
+      0 10px 30px -12px rgba(99, 102, 241, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.22),
+      0 12px 38px -12px rgba(99, 102, 241, 0.75);
+  }
+}
+
+/* Hero pillar cards */
+.pillar {
+  overflow: hidden;
+}
+.pillar-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(90deg, #6366f1, #a78bfa, transparent);
+}
+.pillar:hover .pillar-bar {
+  transform: scaleX(1);
+}
+.pillar-icon {
+  transition: color 0.35s ease, border-color 0.35s ease,
+    background-color 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pillar:hover .pillar-icon {
+  color: #ffffff;
+  border-color: rgba(129, 140, 248, 0.6);
+  background-color: rgba(99, 102, 241, 0.22);
+  transform: translateY(-2px);
+}
+
+/* Experience highlight tiles — CSS-only hover, no animated shadows. */
+.hl-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease, background-color 0.35s ease;
+}
+.hl-card:hover {
+  transform: translateY(-2px);
+  border-color: #3f3f4a;
+  background-color: rgba(255, 255, 255, 0.055);
 }
 
 .scrollbar-hide {

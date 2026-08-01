@@ -69,7 +69,6 @@ function App() {
           stagger: 0.08,
           force3D: true,
           overwrite: true,
-          clearProps: "opacity,transform",
         }),
     });
 
@@ -99,12 +98,26 @@ function App() {
   // One delegated listener drives the cursor glow on every .spotlight surface.
   useEffect(() => {
     if (prefersReducedMotion()) return;
+    // The glow is a real element moved with translate3d — a composited
+    // transform, rather than repainting a radial gradient every mousemove.
     const onMove = (e) => {
       const el = e.target.closest?.(".spotlight");
       if (!el) return;
+      let glow = el._glow;
+      if (!glow || !glow.isConnected) {
+        glow = el.querySelector(":scope > .spotlight-glow");
+        if (!glow) {
+          glow = document.createElement("span");
+          glow.className = "spotlight-glow";
+          glow.setAttribute("aria-hidden", "true");
+          el.appendChild(glow);
+        }
+        el._glow = glow;
+      }
       const rect = el.getBoundingClientRect();
-      el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-      el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      glow.style.transform = `translate3d(${e.clientX - rect.left}px, ${
+        e.clientY - rect.top
+      }px, 0)`;
     };
     document.addEventListener("mousemove", onMove, { passive: true });
     return () => document.removeEventListener("mousemove", onMove);
