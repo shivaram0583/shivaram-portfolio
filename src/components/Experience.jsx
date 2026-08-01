@@ -7,10 +7,11 @@ import { gsap, ScrollTrigger, prefersReducedMotion } from "../lib/gsapConfig.js"
 const experiences = [
   {
     company: "Wells Fargo",
+    team: "Digital & Technology Innovation",
     role: "Senior Software Engineer",
     period: "Jul 2026 – Present",
     location: "Hyderabad, India",
-    summary: "Building enterprise letter generation and document generation platforms for the bank within the Digital and Technology Innovation domain.",
+    summary: "Engineering the bank's Enterprise Letter and Document Generation platform, automating creation and delivery of customer communications across multiple lines of business.",
     stack: [
       "Java",
       "Spring Boot",
@@ -26,21 +27,30 @@ const experiences = [
     ],
     highlights: [
       {
-        title: "Enterprise Letter Generation",
-        description: "Working on the bank's enterprise letter generation platform, enabling creation and delivery of customer communications at scale."
+        title: "Enterprise Letter & Document Generation",
+        description: "Building the platform that automates generation and delivery of customer letters and documents across the bank's lines of business."
       },
       {
-        title: "Document Generation Process",
-        description: "Developing and enhancing document generation services and workflows that power the bank's digital document needs."
+        title: "Java & Spring Boot Services",
+        description: "Designing and developing Java and Spring Boot services that power document generation workflows end to end."
+      },
+      {
+        title: "Upstream Banking Integration",
+        description: "Integrating document services with upstream banking systems to source and validate customer data reliably."
+      },
+      {
+        title: "Batch Processing & Scheduling",
+        description: "Automating high-volume document runs with AutoSys-scheduled batch jobs and Linux scripting."
       }
     ]
   },
   {
-    company: "Capco Technologies · NatWest Group",
+    company: "Capco Technologies",
+    team: "Client: NatWest Bank · Payments Platform",
     role: "Consultant — Java Backend Engineer",
     period: "Jan 2022 – Jun 2026",
     location: "Hyderabad, India (Hybrid)",
-    summary: "Led modernization of high-value payment rails, cloud migration, and enterprise payment systems at scale.",
+    summary: "Delivered and modernised high-value payment rails for a UK tier-1 bank — building the Faster Payments platform from scratch, implementing ISO 20022 regulatory change, and migrating legacy systems to cloud-native microservices.",
     stack: [
       "Spring Boot",
       "Spring Cloud",
@@ -49,15 +59,23 @@ const experiences = [
       "AWS",
       "PCF → PNF",
       "IBM MQ",
+      "Kafka",
       "ISO 20022",
       "SWIFT",
       "FPS",
       "CHAPS",
-      "PostgreSQL",
+      "SEPA",
       "Oracle",
+      "PostgreSQL",
+      "Liquibase",
       "OAuth2",
+      "mTLS",
       "JWT",
-      "API Gateway"
+      "Apigee",
+      "TYK",
+      "IBM DataPower",
+      "Vault",
+      "AutoSys"
     ],
     highlights: [
       {
@@ -86,16 +104,29 @@ const experiences = [
       },
       {
         title: "AWS Cloud Migration",
-        description: "Contributed to AWS cloud migration for existing payment services, modernizing architecture for scalability."
+        description: "Contributed to AWS cloud migration for existing payment services, modernising architecture for scalability."
+      },
+      {
+        title: "Enterprise API Gateway Integration",
+        description: "Integrated payment APIs with enterprise gateways including TYK, Apigee and IBM DataPower."
+      },
+      {
+        title: "Security & Secrets Management",
+        description: "Implemented OAuth2, mTLS and JWT auth across distributed microservices; managed certificate lifecycle via Venafi and secrets via HashiCorp Vault."
+      },
+      {
+        title: "Database Engineering & Automation",
+        description: "Designed Oracle and PostgreSQL schemas with Liquibase-automated migrations, and configured AutoSys batch jobs for payment file processing."
       }
     ]
   },
   {
     company: "Accenture",
+    team: "Client: Takeda Pharmaceuticals",
     role: "Associate Software Developer",
     period: "Sep 2021 – Jan 2022",
     location: "Hyderabad, India",
-    summary: "Application lifecycle management and production support for enterprise pharmaceutical systems.",
+    summary: "Provided application lifecycle management and production support for business-critical pharmaceutical enterprise systems.",
     stack: ["Java", "ServiceNow", "Command Center Ops", "Incident Management", "Root Cause Analysis"],
     highlights: [
       {
@@ -198,8 +229,11 @@ const Experience = () => {
                       <div>
                         <p className="text-xs uppercase tracking-[0.35em] text-[#a78bfa]">{exp.period}</p>
                         <h3 className="mt-2 text-[1.4rem] sm:text-2xl font-semibold text-[#ededef]">{exp.role}</h3>
-                        <p className="text-sm text-[#a1a1aa]">{exp.company}</p>
-                        <p className="text-xs text-[#8b8b96]">{exp.location}</p>
+                        <p className="text-sm font-medium text-[#ededef]">{exp.company}</p>
+                        {exp.team && (
+                          <p className="text-xs text-[#a1a1aa] mt-0.5">{exp.team}</p>
+                        )}
+                        <p className="text-xs text-[#8b8b96] mt-0.5">{exp.location}</p>
                       </div>
                       <div className="flex flex-wrap gap-2 text-[11px]">
                         {exp.stack.map((tag) => (

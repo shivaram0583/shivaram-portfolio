@@ -1,6 +1,35 @@
 import { motion } from "framer-motion";
-import { HiOutlineAcademicCap } from "react-icons/hi2";
+import { HiOutlineAcademicCap, HiOutlineCheckBadge } from "react-icons/hi2";
 import FillTitle from "./FillTitle.jsx";
+
+const certifications = [
+  {
+    name: "AWS Certified Developer – Associate",
+    code: "DVA-C02",
+    issuer: "Amazon Web Services",
+  },
+  {
+    name: "DevOps Certification",
+    code: "Docker · Kubernetes · Terraform · Azure DevOps",
+    issuer: "Professional Certification",
+  },
+  {
+    name: "Generative AI Essentials: Overview and Impact",
+    code: "GenAI",
+    issuer: "Professional Certification",
+  },
+  {
+    name: "Responsible AI in the Generative AI Era",
+    code: "Responsible AI",
+    issuer: "Professional Certification",
+  },
+];
+
+const languages = [
+  { name: "English", level: "Full Professional Proficiency" },
+  { name: "Hindi", level: "Professional Working Proficiency" },
+  { name: "Telugu", level: "Native Proficiency" },
+];
 
 const Education = () => {
   return (
@@ -16,10 +45,10 @@ const Education = () => {
           <FillTitle
             as="h2"
             className="text-3xl sm:text-4xl font-semibold"
-            segments={[{ text: "Education", accent: true }, { text: "& Coursework" }]}
+            segments={[{ text: "Education &" }, { text: "Certifications", accent: true }]}
           />
           <p className="text-[#a1a1aa] mt-3 text-sm sm:text-base max-w-2xl mx-auto">
-            Computer science foundation with emphasis on distributed systems and secure software delivery.
+            Computer science foundation in networks and security, backed by cloud and DevOps certification.
           </p>
         </div>
 
@@ -62,6 +91,52 @@ const Education = () => {
             )}
           </div>
         </motion.div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.65fr)]">
+          <div data-reveal>
+            <div className="card spotlight lift p-6 sm:p-8 h-full">
+              <div className="flex items-center gap-2.5 mb-5">
+                <HiOutlineCheckBadge className="text-[#a78bfa]" size={18} />
+                <p className="text-xs uppercase tracking-[0.25em] text-[#8b8b96]">
+                  Certifications
+                </p>
+              </div>
+              <ul className="space-y-4">
+                {certifications.map((cert) => (
+                  <li key={cert.name} className="flex gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400" />
+                    <div>
+                      <p className="text-sm font-medium text-[#ededef] leading-snug">
+                        {cert.name}
+                      </p>
+                      <p className="mt-1 font-mono text-[11px] text-[#8b8b96]">
+                        {cert.code} · {cert.issuer}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div data-reveal>
+            <div className="card spotlight lift p-6 sm:p-8 h-full">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#8b8b96] mb-5">
+                Languages
+              </p>
+              <ul className="space-y-4">
+                {languages.map((lang) => (
+                  <li key={lang.name}>
+                    <p className="text-sm font-medium text-[#ededef]">{lang.name}</p>
+                    <p className="mt-0.5 font-mono text-[11px] text-[#8b8b96] leading-relaxed">
+                      {lang.level}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

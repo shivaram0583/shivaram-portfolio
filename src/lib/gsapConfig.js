@@ -17,4 +17,11 @@ export const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Dev-only handles so scroll behaviour can be inspected from the console.
+if (import.meta.env.DEV && typeof window !== "undefined") {
+  window.gsap = gsap;
+  window.ScrollTrigger = ScrollTrigger;
+  window.ScrollSmoother = ScrollSmoother;
+}
+
 export { gsap, ScrollTrigger, ScrollSmoother, SplitText };

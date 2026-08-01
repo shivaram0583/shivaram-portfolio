@@ -44,6 +44,14 @@ function App() {
       effects: true,
       smoothTouch: 0.1,
     });
+
+    // Child components mount — and register their ScrollTriggers — before this
+    // parent effect runs, so those triggers measured their positions before the
+    // smoother existed. Re-measure everything now, and again once webfonts
+    // settle, since text reflow shifts every start/end offset down the page.
+    ScrollTrigger.refresh();
+    document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
     return () => smoother.kill();
   });
 

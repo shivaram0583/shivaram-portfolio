@@ -23,7 +23,14 @@ const CountUp = ({ value, className = "" }) => {
         v: target,
         duration: 1.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 88%", once: true },
+        scrollTrigger: {
+          // Trigger off the surrounding block, not this inline <span> —
+          // inline boxes give ScrollTrigger unreliable measurements.
+          trigger: ref.current.closest("div") || ref.current,
+          start: "top 90%",
+          once: true,
+          invalidateOnRefresh: true,
+        },
         onUpdate: () => {
           if (ref.current) {
             ref.current.textContent = state.v.toFixed(decimals) + suffix;

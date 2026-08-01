@@ -6,11 +6,19 @@ import CountUp from "./CountUp.jsx";
 const Summary = () => {
   const stats = [
     { label: "Years", value: "5", detail: "Software engineering" },
+
     { label: "Transactions", value: "243k+", detail: "per BLP load" },
     { label: "Availability", value: "99.9%", detail: "cloud uptime" },
   ];
 
-  const traits = ["Java Backend", "Microservices", "Cloud Native", "Payment Systems", "System Design"];
+  const traits = [
+    "Java Backend",
+    "Microservices",
+    "Cloud Native",
+    "Payment Systems",
+    "Event-Driven Architecture",
+    "Distributed Systems",
+  ];
 
   return (
     <section id="about" className="px-6 sm:px-12 lg:px-24 py-16">
@@ -32,7 +40,13 @@ const Summary = () => {
           />
         </div>
         <p className="text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
-          Software Engineer with 5 years of experience in designing and developing microservices, cloud-native applications, and real-time payment systems. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, AWS, and distributed system design. Hands-on experience implementing ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing with strong focus on clean code, CI/CD, and Agile delivery.
+          Senior Software Engineer with 5+ years of experience in designing and developing
+          microservices, cloud-native applications, real-time payment systems, and enterprise banking
+          solutions. Expert in Java, Spring Boot, Spring Cloud, REST APIs, Microservices, Kafka, AWS,
+          PCF, SQL/NoSQL databases, and distributed system design. Hands-on experience implementing
+          ISO 20022, SWIFT, FPS, CHAPS, and large-scale transaction processing. Proven ability to
+          build scalable, secure, and high-performance applications with strong focus on clean code,
+          CI/CD, DevOps, and Agile delivery.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
